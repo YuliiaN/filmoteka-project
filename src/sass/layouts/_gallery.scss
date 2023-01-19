@@ -1,0 +1,90 @@
+.gallery {
+  background-color: $white-main;
+}
+
+.gallery__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include mq(mob) {
+    flex-direction: column;
+    gap: 20px;
+  }
+  @include mq(tab) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    flex-direction: row;
+  }
+  @include mq(desk) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+.gallery__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 440px;
+  @include mq(tab) {
+    max-width: 336px;
+  }
+  @include mq(desk) {
+    max-width: 394px;
+    margin-bottom: 32px;
+  }
+}
+
+.gallery__film-box {
+  width: 100%;
+  min-height: 440px;
+  outline: red 1px solid;
+  background-color: #f5f4f4;
+  border-radius: 5px;
+}
+
+.gallery__description-film {
+  display: flex;
+  color: $orange-accent;
+  font-size: 12px;
+  line-height: 1.33;
+  font-weight: 500;
+  gap: 4px;
+  @include mq(desk) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.gallery__title-film {
+  display: flex;
+  text-transform: uppercase;
+  color: $black-main;
+  font-size: 12px;
+  line-height: 1.33;
+  font-weight: 500;
+  @include mq(desk) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.gallery__title-box {
+  margin-top: 10px;
+  @include mq(tab) {
+    margin-top: 8px;
+  }
+  @include mq(desk) {
+    margin-top: 12px;
+  }
+}
+
+.gallery__year-film {
+  border-left: 1px solid $orange-accent;
+  padding-left: 4px;
+}

@@ -4,17 +4,17 @@
   margin: 0 auto;
   outline: 1px solid green;
 
-  @include mq('mob') {
+  @include mq(mob) {
     width: 480px;
   }
 
-  @include mq('tab') {
+  @include mq(tab) {
     padding-left: 32px;
     padding-right: 32px;
     width: 768px;
   }
 
-  @include mq('desk') {
+  @include mq(desk) {
     width: 1280px;
   }
 }
