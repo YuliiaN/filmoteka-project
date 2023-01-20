@@ -46,7 +46,6 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.16;
-   
   }
 }
 .header__logo {
@@ -70,9 +69,10 @@
   }
 }
 .header__pages--reset {
-    text-decoration: none;
-    color: $white-main;
+  text-decoration: none;
+  color: $white-main;
 }
+
 .header__underline {
   position: relative;
 }
@@ -128,4 +128,9 @@
 .search__icon {
   width: 12px;
   height: 12px;
+}
+
+.header__nav-item {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
