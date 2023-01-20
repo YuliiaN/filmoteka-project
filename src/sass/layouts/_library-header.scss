@@ -3,7 +3,7 @@
       background-size: cover;
       background-position: center;
       padding-top: 40px;
-      padding-bottom: 92px;
+      padding-bottom: 60px;
 
       background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url('../img/header_libr_mob1-min.jpg');
       @media (min-device-pixel-ratio: 2),
@@ -97,7 +97,7 @@
     justify-content: center;
     align-items: center;
         margin: 0 auto;
-        margin-top: 66px;
+        margin-top: 60px;
         gap: 20px;
         
 
@@ -122,7 +122,8 @@ font-size: 12px;
 line-height: 1.33;
 text-transform: uppercase;
 border-radius: 5px;
-        gap: 20px;
+gap: 20px;
+cursor: pointer;
   @include mq(tab) {
     width: 152px;
   }
