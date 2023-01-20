@@ -5,6 +5,9 @@
     background-position: center;
     padding-top: 40px;
     padding-bottom: 92px;
+    @include mq(tab) {
+      padding-bottom: 80px;
+    }
     background-image: url('../img/header_mob_1x-min.jpg');
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
