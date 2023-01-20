@@ -1,0 +1,222 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  outline: 1px solid red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 280px;
+
+  padding: 48px 20px 40px;
+  background-color: $white-main;
+  transform: translate(-50%, -50%) scale(1);
+  transition: $time $cubic;
+
+  @include mq('tab-only') {
+    width: 704px;
+    min-height: 552px;
+    padding: 40px 72px 40px 36px;
+    display: flex;
+    gap: 68px;
+  }
+
+  @include mq('desk') {
+    width: 806px;
+    min-height: 558px;
+    padding: 40px 12px;
+    display: flex;
+    gap: 16px;
+  }
+}
+
+.modal-btn-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: $white-main;
+  cursor: pointer;
+  border: none;
+}
+
+.modal-poster {
+  margin: 0 auto;
+  width: 240px;
+  height: 357px;
+  border: 1px solid teal;
+  border-radius: 5px;
+
+  @include mq('tab-only') {
+    width: 264px;
+    height: 374px;
+    flex-shrink: 1;
+  }
+
+  @include mq('desk') {
+    width: 375px;
+    height: 478px;
+  }
+}
+
+.modal-info {
+  @include mq('tab-only') {
+    width: 264px;
+  }
+  @include mq('desk') {
+    width: 391px;
+  }
+}
+
+.modal-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  line-height: 1.17;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: $black-main;
+
+  @include mq('tab-only') {
+    margin-top: 0;
+  }
+
+  @include mq('desk') {
+    margin-top: 0;
+    font-size: 30px;
+  }
+}
+
+.info-wrap {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 20px;
+}
+
+.info-list {
+  width: calc(100% / 2);
+}
+
+.info-item-left {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+  color: $grey-modal;
+}
+
+.info-item-left:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.info-item-right {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+  color: $black-main;
+}
+
+.info-item-right:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.span-vote {
+  display: inline-block;
+  width: 36px;
+  height: 16px;
+  border-radius: 5px;
+  background-color: $orange-accent;
+  color: $white-main;
+  line-height: 1.17;
+  text-align: center;
+}
+
+.span-slash {
+  color: $grey-modal;
+}
+
+.span-votes {
+  display: inline-block;
+  width: 36px;
+  height: 16px;
+  border-radius: 5px;
+  background-color: $grey-bcg-footer;
+  line-height: 1.17;
+  text-align: center;
+}
+
+.about {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+  text-transform: uppercase;
+  color: $black-main;
+}
+
+.annotation {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.67;
+  color: $black-main;
+  margin-bottom: 20px;
+}
+
+.btn-wrap {
+  display: flex;
+  gap: 20px;
+
+  @include mq('desk') {
+    margin-left: 8px;
+  }
+}
+
+.modal-btn-watched {
+  width: 110px;
+  height: 44px;
+  border-radius: 5px;
+  border: none;
+  background-color: $orange-accent;
+  color: $white-main;
+  @extend %btn;
+
+  @include mq('tab-only') {
+    width: 125px;
+  }
+  @include mq('desk') {
+    width: 136px;
+  }
+}
+
+.modal-btn-queue {
+  width: 110px;
+  height: 44px;
+  border: 1px, solid, $black-main;
+  border-radius: 5px;
+  background-color: transparent;
+  color: $black-main;
+  @extend %btn;
+
+  @include mq('tab-only') {
+    width: 125px;
+  }
+  @include mq('desk') {
+    width: 136px;
+  }
+}
