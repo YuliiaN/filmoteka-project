@@ -87,6 +87,11 @@ img {
   padding-bottom: 92px;
   background-image: url("../img/header_mob_1x-min.jpg");
 }
+@media screen and (min-width: 768px) {
+  .header__container {
+    padding-bottom: 80px;
+  }
+}
 @media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .header__container {
     background-image: url("../img/header_mob_2x-min.jpg");
@@ -132,6 +137,7 @@ img {
 
 .header__logo {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 @media screen and (min-width: 768px) and (max-width: 1279.98px) {
@@ -234,6 +240,159 @@ img {
 .header__nav-item {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.library__container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../img/header_libr_mob1-min.jpg");
+}
+@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .library__container {
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../img/header_libr_mob2-min.jpg");
+  }
+}
+@media screen and (min-width: 768px) {
+  .library__container {
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../img/header_libr_tab1-min.jpg");
+  }
+}
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
+  .library__container {
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../img/header_libr_tab2-min.jpg");
+  }
+}
+@media screen and (min-width: 1280px) {
+  .library__container {
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../img/header_libr_desk1-min.jpg");
+  }
+}
+@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (min-resolution: 192dpi), screen and (min-width: 1280px) and (min-resolution: 2dppx) {
+  .library__container {
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../img/header_libr_desk2-min.jpg");
+  }
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__nav--list {
+  color: #ffffff;
+  text-transform: uppercase;
+  display: flex;
+  gap: 40px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16;
+}
+.header__nav-item {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header__logo {
+  display: flex;
+  gap: 10px;
+}
+@media screen and (min-width: 768px) and (max-width: 1279.98px) {
+  .header__logo {
+    gap: 8px;
+  }
+}
+.header__logo--word {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.7;
+  text-decoration: none;
+  color: #ffffff;
+}
+@media screen and (max-width: 767.98px) {
+  .header__logo--word {
+    display: none;
+  }
+}
+
+.header__pages--reset {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.header__underline {
+  position: relative;
+}
+
+.header__underline::after {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: #ff001b;
+  border-radius: 2px;
+}
+
+.header__library--buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 60px;
+  gap: 20px;
+}
+@media screen and (min-width: 768px) {
+  .header__library--buttons {
+    margin-top: 40px;
+    gap: 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header__library--buttons {
+    gap: 16px;
+  }
+}
+
+.library__button {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  width: 130px;
+  height: 44px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  border-radius: 5px;
+  gap: 20px;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .library__button {
+    width: 152px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .library__button {
+    width: 147px;
+    height: 42px;
+  }
+}
+
+.button__watched {
+  background-color: #ff6b08;
+  box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+  border: inherit;
 }
 
 .gallery {
