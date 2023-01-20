@@ -99,9 +99,6 @@
   display: flex;
   justify-content: start;
   margin-bottom: 20px;
-  @include mq('tab-only') {
-    width: 264px;
-  }
 }
 
 .info-list {
@@ -183,6 +180,10 @@
 .btn-wrap {
   display: flex;
   gap: 20px;
+
+  @include mq('desk') {
+    padding-left: 8px;
+  }
 }
 
 .modal-btn-watched {
@@ -195,7 +196,6 @@
 
   @include mq('tab-only') {
     width: 125px;
-    height: 44px;
   }
 }
 
@@ -210,6 +210,5 @@
 
   @include mq('tab-only') {
     width: 125px;
-    height: 44px;
   }
 }
