@@ -18,10 +18,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 320px;
-  //   min-height: 450px;
+  min-width: 280px;
 
-  padding: 40px 20px 40px 20px;
+  padding: 48px 20px 40px;
   background-color: $white-main;
   transform: translate(-50%, -50%) scale(1);
   transition: transform 1000ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -100,6 +99,39 @@
   display: flex;
   justify-content: start;
   margin-bottom: 20px;
+  @include mq('tab-only') {
+    width: 264px;
+  }
+}
+
+.info-list {
+  width: calc(100% / 2);
+}
+
+.info-item-left {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+  color: $grey-modal;
+}
+
+.info-item-left:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.info-item-right {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+  color: $black-main;
+}
+
+.info-item-right:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.upper {
+  text-transform: uppercase;
 }
 
 .about {
@@ -116,9 +148,8 @@
   font-weight: 500;
   line-height: 1.67;
   color: $black-main;
-
+  margin-bottom: 20px;
   @include mq('tab-only') {
-    margin-bottom: 20px;
     width: 264px;
   }
 
@@ -126,26 +157,6 @@
     margin-bottom: 20px;
     width: 391px;
   }
-}
-
-.info-list {
-  width: calc(100% / 2);
-}
-
-.info-item-left {
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.33;
-  color: $grey-modal;
-  margin-bottom: 8px;
-}
-
-.info-item-right {
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.33;
-  color: $black-main;
-  margin-bottom: 8px;
 }
 
 .btn-wrap {
@@ -160,16 +171,18 @@
   border-radius: 5px;
   background-color: $orange-accent;
   color: $white-main;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
-  text-transform: uppercase;
-  text-align: center;
 
   @include mq('tab-only') {
     width: 125px;
     height: 44px;
   }
+}
+.btn {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .modal-btn-queue {
@@ -179,11 +192,6 @@
   border-radius: 5px;
   background-color: $white-main;
   color: $black-main;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
-  text-transform: uppercase;
-  text-align: center;
 
   @include mq('tab-only') {
     width: 125px;
