@@ -1,4 +1,9 @@
 .section {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+
+  @include mq(tab) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }
