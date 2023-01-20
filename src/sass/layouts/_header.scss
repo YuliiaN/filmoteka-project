@@ -1,0 +1,131 @@
+.header {
+  &__container {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 40px;
+    padding-bottom: 92px;
+    background-image: url('../img/header_mob_1x-min.jpg');
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../img/header_mob_2x-min.jpg');
+    }
+    @include mq(tab) {
+      background-image: url('../img/header_tab_1x-min.jpg');
+      @media (min-device-pixel-ratio: 2),
+        (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background-image: url('../img/header_tab_2x-min.jpg');
+      }
+    }
+    @include mq(desk) {
+      background-image: url('../img/header_desk_1x-min.jpg');
+      @media (min-device-pixel-ratio: 2),
+        (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background-image: url('../img/header_desk_2x-min.jpg');
+      }
+    }
+  }
+}
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &--list {
+    color: $white-main;
+    text-transform: uppercase;
+    display: flex;
+    gap: 40px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
+   
+  }
+}
+.header__logo {
+  display: flex;
+  gap: 10px;
+  @include mq(tab-only) {
+    gap: 8px;
+  }
+
+  &--word {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.7;
+    text-decoration: none;
+    color: $white-main;
+    @include mq(mob-only) {
+      display: none;
+    }
+  }
+}
+.header__pages--reset {
+    text-decoration: none;
+    color: $white-main;
+}
+.header__underline {
+  position: relative;
+}
+.header__underline::after {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 3px;
+  background-color: $red-error;
+  border-radius: 2px;
+}
+
+.header__form {
+  position: relative;
+  margin: 0 auto;
+  width: 280px;
+  margin-top: 54px;
+  @include mq(tab) {
+    width: 336px;
+    margin-top: 40px;
+  }
+  @include mq(desk) {
+    width: 394px;
+  }
+}
+.header__input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid $white-main;
+  width: 100%;
+  height: 20px;
+
+  &::placeholder {
+    font-size: 14px;
+    line-height: 1.14;
+    color: $white-main;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.search__button {
+  border: none;
+  background-color: transparent;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 6px;
+}
+.search__icon {
+  width: 12px;
+  height: 12px;
+}
