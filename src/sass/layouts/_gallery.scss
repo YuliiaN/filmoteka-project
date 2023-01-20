@@ -1,0 +1,87 @@
+.gallery {
+  background-color: $white-main;
+}
+
+.gallery__list {
+  @include mq(tab) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  @include mq(desk) {
+    justify-content: center;
+    column-gap: 16px;
+    row-gap: 32px;
+  }
+}
+
+.gallery__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 336px;
+  margin: 0 auto;
+  min-height: 438px;
+  @include mq(tab) {
+    // min-height: 455px;
+  }
+  @include mq(desk) {
+    width: calc((100% - 32px) / 3);
+    // min-height: 574px;
+  }
+}
+
+.gallery__item:not(:last-child) {
+  @include mq(mob-only) {
+    margin-bottom: 20px;
+  }
+}
+
+.gallery__film-box {
+  width: 100%;
+  min-height: 398px;
+  outline: red 1px solid;
+  background-color: #f5f4f4;
+  border-radius: 5px;
+  @include mq(tab) {
+    // min-height: 455px;
+  }
+  @include mq(desk) {
+    // min-height: 574px;
+  }
+}
+
+.gallery__genre-film {
+  color: $orange-accent;
+  font-size: 12px;
+  line-height: 1.33;
+  font-weight: 500;
+  @include mq(desk) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.gallery__title-film {
+  text-transform: uppercase;
+  color: $black-main;
+  font-size: 12px;
+  line-height: 1.33;
+  font-weight: 500;
+  @include mq(desk) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.gallery__title-box {
+  margin-top: 10px;
+
+  @include mq(tab) {
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+  @include mq(desk) {
+    margin-top: 12px;
+  }
+}
