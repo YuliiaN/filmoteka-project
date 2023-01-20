@@ -1,20 +1,30 @@
 .container {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
   margin: 0 auto;
   outline: 1px solid green;
 
-  @include mq('mob') {
+  @include mq(mob) {
     width: 480px;
   }
 
-  @include mq('tab') {
+// <<<<<<< HEAD
+  @include mq(tab) {
     padding-left: 32px;
     padding-right: 32px;
     width: 768px;
   }
 
-  @include mq('desk') {
+  @include mq(desk) {
     width: 1280px;
+// =======
+  @include mq('tab') {
+    width: 734px;
   }
+
+  @include mq('desk') {
+    width: 1246px;
+// >>>>>>> dev
+  }
+}
 }
