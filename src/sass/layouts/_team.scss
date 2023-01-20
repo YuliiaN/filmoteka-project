@@ -64,7 +64,7 @@
     // transform: translate(-50%, -30%) scale(1);
   }
   // @media screen and (min-width: 1200px) {
-  //   transform: translate(-50%, -50%) scale(1);
+  //   // transform: translate(-50%, -50%) scale(1);
   // }
 }
 
@@ -85,8 +85,8 @@
   }
 
   @media screen and (min-width: 768px) {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
   }
 }
 .modal-team__close-icon {
