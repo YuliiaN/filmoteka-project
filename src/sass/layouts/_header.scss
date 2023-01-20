@@ -50,6 +50,7 @@
 }
 .header__logo {
   display: flex;
+  align-items: center;
   gap: 10px;
   @include mq(tab-only) {
     gap: 8px;
