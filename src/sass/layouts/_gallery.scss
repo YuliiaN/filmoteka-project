@@ -23,11 +23,11 @@
   margin: 0 auto;
   min-height: 438px;
   @include mq(tab) {
-    min-height: 455px;
+    // min-height: 455px;
   }
   @include mq(desk) {
     width: calc((100% - 32px) / 3);
-    min-height: 574px;
+    // min-height: 574px;
   }
 }
 
@@ -44,10 +44,10 @@
   background-color: #f5f4f4;
   border-radius: 5px;
   @include mq(tab) {
-    min-height: 455px;
+    // min-height: 455px;
   }
   @include mq(desk) {
-    min-height: 574px;
+    // min-height: 574px;
   }
 }
 
