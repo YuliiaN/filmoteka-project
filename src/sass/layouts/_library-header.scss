@@ -1,0 +1,140 @@
+    .library__container {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      padding-top: 40px;
+      padding-bottom: 92px;
+
+      background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url('../img/header_libr_mob1-min.jpg');
+      @media (min-device-pixel-ratio: 2),
+        (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url('../img/header_libr_mob2-min.jpg');
+      }
+      @include mq(tab) {
+        background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url('../img/header_libr_tab1-min.jpg');
+        @media (min-device-pixel-ratio: 2),
+          (-webkit-min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url('../img/header_libr_tab2-min.jpg');
+        }
+      }
+      @include mq(desk) {
+        background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url('../img/header_libr_desk1-min.jpg');
+        @media (min-device-pixel-ratio: 2),
+          (-webkit-min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url('../img/header_libr_desk2-min.jpg');
+        }
+      }
+    }
+  
+  .header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &--list {
+      color: $white-main;
+      text-transform: uppercase;
+      display: flex;
+      gap: 40px;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1.16;
+    }
+    &-item {
+        padding-top: 10px;
+        padding-bottom: 10px;
+  }
+    }
+  
+  .header__logo {
+    display: flex;
+    gap: 10px;
+    @include mq(tab-only) {
+      gap: 8px;
+    }
+  
+    &--word {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 1.7;
+      text-decoration: none;
+      color: $white-main;
+      @include mq(mob-only) {
+        display: none;
+      }
+    }
+  }
+  .header__pages--reset {
+    text-decoration: none;
+    color: $white-main;
+  }
+  
+  .header__underline {
+    position: relative;
+  }
+  .header__underline::after {
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: $red-error;
+    border-radius: 2px;
+  }
+  
+  .header__library--buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        margin: 0 auto;
+        margin-top: 66px;
+        gap: 20px;
+        
+
+    @include mq(tab) {
+           margin-top: 40px;
+           gap: 32px;
+    }
+    @include mq(desk) {
+        gap: 16px;
+    }
+  }
+  .library__button {
+    background-color: transparent;
+        border: 1px solid $white-main;
+        color: $white-main;
+    width: 130px;
+    height: 44px;
+    font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 1.33;
+text-transform: uppercase;
+border-radius: 5px;
+        gap: 20px;
+  @include mq(tab) {
+    width: 152px;
+  }
+  @include mq(desk) {
+    width: 147px;
+    height: 42px;
+        }
+    }
+.button__watched {
+    background-color: $orange-accent;
+    box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+    border: inherit;
+}
+  
+  
