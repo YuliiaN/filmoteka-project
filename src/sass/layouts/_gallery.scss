@@ -19,10 +19,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+  width: 336px;
+  margin: 0 auto;
   min-height: 438px;
   @include mq(tab) {
-    width: 336px;
     min-height: 455px;
   }
   @include mq(desk) {
@@ -56,7 +56,6 @@
   font-size: 12px;
   line-height: 1.33;
   font-weight: 500;
-  gap: 4px;
   @include mq(desk) {
     font-size: 20px;
     line-height: 1.2;
@@ -64,7 +63,6 @@
 }
 
 .gallery__title-film {
-  display: flex;
   text-transform: uppercase;
   color: $black-main;
   font-size: 12px;
@@ -78,7 +76,6 @@
 
 .gallery__title-box {
   margin-top: 10px;
-  margin-bottom: 20px;
 
   @include mq(tab) {
     margin-top: 8px;
