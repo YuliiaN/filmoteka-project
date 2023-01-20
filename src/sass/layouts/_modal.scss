@@ -28,7 +28,7 @@
   @include mq('tab-only') {
     width: 704px;
     min-height: 552px;
-    padding: 40px 72px 36px;
+    padding: 40px 72px 40px 36px;
     display: flex;
     gap: 68px;
   }
@@ -182,7 +182,6 @@
 
 .btn-wrap {
   display: flex;
-  margin-top: 20px;
   gap: 20px;
 }
 
