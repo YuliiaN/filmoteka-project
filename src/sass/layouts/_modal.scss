@@ -62,6 +62,7 @@
   @include mq('tab-only') {
     width: 264px;
     height: 374px;
+    flex-shrink: 1;
   }
 
   @include mq('desk') {
@@ -70,11 +71,14 @@
   }
 }
 
-// .modal-info {
-//   @include mq('tab-only') {
-//     width: 264px;
-//   }
-// }
+.modal-info {
+  @include mq('tab-only') {
+    width: 264px;
+  }
+  @include mq('desk') {
+    width: 391px;
+  }
+}
 
 .modal-title {
   margin-top: 20px;
@@ -171,14 +175,6 @@
   line-height: 1.67;
   color: $black-main;
   margin-bottom: 20px;
-  @include mq('tab-only') {
-    width: 264px;
-  }
-
-  @include mq('desk') {
-    margin-bottom: 20px;
-    width: 391px;
-  }
 }
 
 .btn-wrap {
