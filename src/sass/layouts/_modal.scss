@@ -197,6 +197,9 @@
   @include mq('tab-only') {
     width: 125px;
   }
+  @include mq('desk') {
+    width: 136px;
+  }
 }
 
 .modal-btn-queue {
@@ -210,5 +213,8 @@
 
   @include mq('tab-only') {
     width: 125px;
+  }
+  @include mq('desk') {
+    width: 136px;
   }
 }
