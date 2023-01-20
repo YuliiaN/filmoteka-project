@@ -19,7 +19,8 @@ export default class ApiService {
       const response = await axios.get(
         `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${this.page}`
       );
-      return response;
+      const data = response.data;
+      return data;
     } catch (error) {
       console.log(error);
     }
@@ -33,7 +34,8 @@ export default class ApiService {
       const response = await axios.get(
         `${BASE_URL}/movie/${id}?api_key=${API_KEY}`
       );
-      return response;
+      const data = response.data;
+      return data;
     } catch (error) {
       console.log(error);
     }
@@ -47,7 +49,8 @@ export default class ApiService {
       const response = await axios.get(
         `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${string}&page=${this.page}`
       );
-      return response;
+      const data = response.data;
+      return data;
     } catch (error) {
       console.log(error);
     }
