@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://developers.themoviedb.org/3';
+const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'b72e97d50f503cf310444389e0d21ec6';
 
 // в каждом своем файле js нужно создать экземпляр класса ApiService

@@ -44,6 +44,9 @@
     max-width: 800px;
     min-height: 600px;
     padding: 32px 60px;
+    transform: translate(-50%, -30%) scale(1);
+  }
+  @media screen and (min-width: 1200px){
     transform: translate(-50%, -50%) scale(1);
   }
 }
@@ -68,6 +71,11 @@
     height: 24px;
   }
 }
+.modal-team__close-icon{
+  width: 30px;
+  height: 30px;
+}
+
 
 .modal-team__title {
   margin-bottom: 20px;
@@ -166,7 +174,11 @@
 .team__item-photo {
   width: 140px;
   height: 140px;
-  background-color: cadetblue;
   border: 2px solid $orange-accent;
   border-radius: 50%;
+}
+
+.team__item-logo{
+  width: 30px;
+  height: 30px;
 }
