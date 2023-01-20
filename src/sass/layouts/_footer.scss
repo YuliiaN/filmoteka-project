@@ -1,0 +1,35 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: $grey-bcg-footer;
+}
+
+.footer__text {
+  color: $grey-footer;
+  text-align: center;
+  line-height: 26px;
+  font-size: 14px;
+  width: 236px;
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+.footer__heart {
+  color: $orange-accent;
+}
+
+.footer__text-link {
+  text-decoration: underline;
+  color: $grey-footer;
+
+  &:hover,
+  &:focus {
+    text-shadow: $grey-modal 1px 0 10px;
+    color: $orange-accent;
+  }
+}
