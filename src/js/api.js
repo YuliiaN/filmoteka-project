@@ -72,6 +72,3 @@ export default class ApiService {
     this.page = 1;
   }
 }
-
-const api = new ApiService();
-api.getPopularMovies();
