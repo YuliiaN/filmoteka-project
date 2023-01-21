@@ -10,6 +10,7 @@ const trailerRefs = {
   body: document.querySelector('body'),
   video: document.querySelector('.trailer__wrap'),
 };
+const trailerApi = new ApiService();
 let trailerId;
 
 trailerRefs.gallery.addEventListener('click', onClickOpenModal);
@@ -53,8 +54,7 @@ function onEscClose(event) {
 
 async function setVideo(id) {
   try {
-    const api = new ApiService();
-    const response = await api.getTrailerById(id);
+    const response = await trailerApi.getTrailerById(id);
     const data = response.results;
     const trailer = data.find(item => item.type === 'Trailer');
     const key = trailer.key;
