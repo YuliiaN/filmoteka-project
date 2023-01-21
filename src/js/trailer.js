@@ -1,3 +1,6 @@
+import ApiService from './api';
+import renderTrailerCard from './templates/trailer-card';
+
 const trailerRefs = {
   openModal: document.querySelectorAll('[data-modal-open-trailer]'),
   closeModal: document.querySelector('[data-modal-close-trailer]'),
@@ -5,7 +8,9 @@ const trailerRefs = {
   gallery: document.querySelector('.gallery__list'),
   backdrop: document.querySelector('.js-backdrop-trailer'),
   body: document.querySelector('body'),
+  video: document.querySelector('.trailer__wrap'),
 };
+// let trailerId;
 
 trailerRefs.gallery.addEventListener('click', onClickOpenModal);
 
@@ -14,11 +19,12 @@ function onClickOpenModal(event) {
     event.target.classList.contains('trailer-text') ||
     event.target.classList.contains('gallery__trailer')
   ) {
-    toggleTrailerModal();
+    // trailerId = event.target.closest('li').id;
     onBodyToggle();
     trailerRefs.closeModal.addEventListener('click', toggleTrailerModal);
     trailerRefs.backdrop.addEventListener('click', onClickBackdropClose);
     trailerRefs.body.addEventListener('keydown', onEscClose);
+    // setVideo(trailerId);
   }
 }
 
@@ -41,5 +47,20 @@ function onEscClose(event) {
   if (event.code === 'Escape') {
     toggleTrailerModal();
     onBodyToggle();
+  }
+}
+
+async function setVideo(id) {
+  try {
+    const api = new ApiService();
+    const response = await api.getTrailerById(id);
+    const data = response.results;
+    const trailer = data.find(item => item.type === 'Trailer');
+    const key = trailer.key;
+    console.log(key);
+    const markup = renderTrailerCard(key);
+    trailerRefs.video.insertAdjacentHTML('beforeend', markup);
+  } catch (error) {
+    console.log(error);
   }
 }
