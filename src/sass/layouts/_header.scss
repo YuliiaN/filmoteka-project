@@ -72,6 +72,18 @@
     }
   }
 }
+
+.header__logo-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__logo-icon {
+  width: 24px;
+  height: 24px;
+}
+
 .header__pages--reset {
   text-decoration: none;
   color: $white-main;
