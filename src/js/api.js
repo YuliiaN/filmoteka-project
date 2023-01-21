@@ -10,6 +10,7 @@ export default class ApiService {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
+    this.totalPages = 1;
   }
 
   // метод для получения на первую страничку популярных запросов, принимает параметр page
