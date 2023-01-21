@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'b72e97d50f503cf310444389e0d21ec6';
+const TYPE = 'Trailer';
 
 // в каждом своем файле js нужно создать экземпляр класса ApiService
 
@@ -58,6 +59,18 @@ export default class ApiService {
 
   // метод для получения видосиков с ютуба, параметр id
   // https://developers.themoviedb.org/3/movies/get-movie-videos
+
+  async getTrailerById(id) {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`
+      );
+      const data = response.data;
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   get query() {
     return this.searchQuery;

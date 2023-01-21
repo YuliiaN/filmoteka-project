@@ -3,7 +3,6 @@ export default function createCardFilm(movies) {
 
   const cardFilm = movies.map(
     ({ id, title, poster_path, genres, release_date }) => {
-      console.log(genres);
       const date = new Date(release_date).getFullYear();
 
       return `<li class="gallery__item" id="${id}">

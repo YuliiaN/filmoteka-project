@@ -6,12 +6,12 @@
   @include mq(tab) {
     display: flex;
     flex-wrap: wrap;
+    align-items: baseline;
     gap: 32px;
   }
   @include mq(desk) {
     justify-content: center;
     column-gap: 16px;
-    row-gap: 32px;
   }
 }
 
@@ -21,7 +21,7 @@
   justify-content: center;
   width: 336px;
   margin: 0 auto;
-  min-height: 438px;
+  min-height: 443px;
   transition: transform 400ms $cubic;
 
   &:hover {
@@ -52,7 +52,6 @@
 .gallery__film-box {
   position: relative;
   width: 100%;
-  min-height: 398px;
   background-color: #f5f4f4;
   @include mq(tab) {
     // min-height: 455px;
