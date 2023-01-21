@@ -8,7 +8,7 @@ const trailerRefs = {
   gallery: document.querySelector('.gallery__list'),
   backdrop: document.querySelector('.js-backdrop-trailer'),
   body: document.querySelector('body'),
-  video: document.querySelector('.trailer__wrap'),
+  video: document.querySelector('.js-trailer__wrap'),
 };
 const trailerApi = new ApiService();
 let trailerId;
@@ -45,6 +45,7 @@ function onClickBackdropClose(event) {
     trailerRefs.modalWindow.classList.add('is-hidden');
     onBodyToggle();
   }
+  removeBackdropListener();
 }
 
 function onEscClose(event) {
@@ -52,6 +53,15 @@ function onEscClose(event) {
     toggleTrailerModal();
     onBodyToggle();
   }
+  removeEscListener();
+}
+
+function removeBackdropListener() {
+  trailerRefs.backdrop.removeEventListener('click', onClickBackdropClose);
+}
+
+function removeEscListener() {
+  trailerRefs.body.removeEventListener('keydown', onEscClose);
 }
 
 async function setVideo(id) {

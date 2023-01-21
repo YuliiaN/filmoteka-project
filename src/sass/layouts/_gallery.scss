@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 336px;
+  width: 280px;
   margin: 0 auto;
   min-height: 443px;
   transition: transform 400ms $cubic;
@@ -34,12 +34,11 @@
   }
 
   @include mq(tab) {
+    width: 336px;
     margin: 0;
-    // min-height: 455px;
   }
   @include mq(desk) {
     width: calc((100% - 32px) / 3);
-    // min-height: 574px;
   }
 }
 
