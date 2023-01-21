@@ -10,6 +10,3 @@ export default function renderTrailerCard(key) {
     >
     </iframe>`;
 }
-
-// width = '560';
-// height = '315';
