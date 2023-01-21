@@ -8,7 +8,7 @@
     width: 480px;
   }
 
-// <<<<<<< HEAD
+  // <<<<<<< HEAD
   @include mq(tab) {
     padding-left: 32px;
     padding-right: 32px;
@@ -17,14 +17,14 @@
 
   @include mq(desk) {
     width: 1280px;
-// =======
-  @include mq('tab') {
-    width: 734px;
-  }
+    // =======
+    @include mq('tab') {
+      width: 734px;
+    }
 
-  @include mq('desk') {
-    width: 1246px;
-// >>>>>>> dev
+    @include mq('desk') {
+      width: 1246px;
+      // >>>>>>> dev
+    }
   }
-}
 }
