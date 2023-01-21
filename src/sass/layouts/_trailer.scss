@@ -35,7 +35,7 @@ body.trailer-open {
   justify-content: center;
   align-items: center;
 
-  transform: transform 1000ms $cubic;
+  transition: transform $time $cubic;
 
   @include mq(tab) {
     width: 600px;
