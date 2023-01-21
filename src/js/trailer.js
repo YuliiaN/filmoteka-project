@@ -21,7 +21,9 @@ function onClickOpenModal(event) {
     event.target.classList.contains('gallery__trailer')
   ) {
     trailerId = event.target.closest('li').id;
-    setVideo(trailerId);
+    setVideo(trailerId).then(() => {
+      /* ignored */
+    });
     onBodyToggle();
     toggleTrailerModal();
     trailerRefs.closeModal.addEventListener('click', toggleTrailerModal);
