@@ -1,0 +1,75 @@
+.backdrop-trailer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+.backdrop-trailer.is-hidden .trailer__modal {
+  transform: translate(-50%, 0%) scale(0.5);
+}
+
+body.trailer-open {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.trailer__modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+
+  width: 800px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: transparent;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: transform 1000ms $cubic;
+}
+
+.trailer__btn {
+  position: absolute;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  top: 12px;
+  right: 12px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color $time $cubic;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $red-error;
+  }
+
+  &:focus {
+    background-color: $red-error;
+    outline: none;
+  }
+}
+
+.trailer__btn-icon {
+  width: 35px;
+  height: 35px;
+  stroke: $white-main;
+}
