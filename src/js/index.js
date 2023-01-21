@@ -1,2 +1,1 @@
-// сюда импортируем все скрипты
-import './add-gallery';
+import './add-gallery.js';
