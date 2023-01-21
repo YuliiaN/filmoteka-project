@@ -20,12 +20,12 @@ function onClickOpenModal(event) {
     event.target.classList.contains('gallery__trailer')
   ) {
     trailerId = event.target.closest('li').id;
+    setVideo(trailerId);
     onBodyToggle();
     toggleTrailerModal();
     trailerRefs.closeModal.addEventListener('click', toggleTrailerModal);
     trailerRefs.backdrop.addEventListener('click', onClickBackdropClose);
     trailerRefs.body.addEventListener('keydown', onEscClose);
-    setVideo(trailerId);
   }
 }
 
