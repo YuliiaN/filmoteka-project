@@ -2,7 +2,11 @@
   <div class="container header__container">
     <nav class="header__nav">
       <div class="header__logo">
-        <a href="./index.html"><img src="./img/film.svg" alt="logo" /></a>
+        <a href="./index.html" class="header__logo-link"
+          ><svg class="header__logo-icon">
+            <use href="./img/sprite.svg#film"></use>
+          </svg>
+        </a>
         <a href="./index.html" class="header__logo--word">Filmoteka</a>
       </div>
       <ul class="header__nav--list">
@@ -22,7 +26,9 @@
         placeholder="Movie search"
       />
       <button type="button" class="search__button">
-        <img src="./img/search.svg" alt="search" class="search__icon" />
+        <svg class="search__icon">
+          <use href="./img/sprite.svg#search"></use>
+        </svg>
       </button>
     </form>
   </div>
