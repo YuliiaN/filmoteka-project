@@ -10,7 +10,7 @@ const trailerRefs = {
   body: document.querySelector('body'),
   video: document.querySelector('.trailer__wrap'),
 };
-// let trailerId;
+let trailerId;
 
 trailerRefs.gallery.addEventListener('click', onClickOpenModal);
 
@@ -19,12 +19,13 @@ function onClickOpenModal(event) {
     event.target.classList.contains('trailer-text') ||
     event.target.classList.contains('gallery__trailer')
   ) {
-    // trailerId = event.target.closest('li').id;
+    trailerId = event.target.closest('li').id;
     onBodyToggle();
+    toggleTrailerModal();
     trailerRefs.closeModal.addEventListener('click', toggleTrailerModal);
     trailerRefs.backdrop.addEventListener('click', onClickBackdropClose);
     trailerRefs.body.addEventListener('keydown', onEscClose);
-    // setVideo(trailerId);
+    setVideo(trailerId);
   }
 }
 
@@ -57,9 +58,8 @@ async function setVideo(id) {
     const data = response.results;
     const trailer = data.find(item => item.type === 'Trailer');
     const key = trailer.key;
-    console.log(key);
     const markup = renderTrailerCard(key);
-    trailerRefs.video.insertAdjacentHTML('beforeend', markup);
+    trailerRefs.video.innerHTML = markup;
   } catch (error) {
     console.log(error);
   }
