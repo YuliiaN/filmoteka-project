@@ -138,22 +138,22 @@
 }
 
 .search__button {
-  border: none;
-  background-color: transparent;
-  width: 12px;
-  height: 12px;
   position: absolute;
   bottom: 0;
   right: 0;
+  width: 12px;
+  height: 12px;
+  border: none;
+  background-color: transparent;
 
   padding: 10px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
 }
+
 .search__icon {
+  position: absolute;
+  bottom: 6px;
+  right: 0;
   width: 12px;
   height: 12px;
 }
