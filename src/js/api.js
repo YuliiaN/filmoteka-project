@@ -40,7 +40,6 @@ export default class ApiService {
       return genres;
     } catch (error) {
       console.log(error);
-      return [];
     }
   }
 
@@ -97,11 +96,11 @@ export default class ApiService {
     this.searchQuery = newQuery;
   }
 
-  incrementPage() {
-    this.page += 1;
-  }
+  // incrementPage() {
+  //   this.page += 1;
+  // }
 
-  resetPage() {
-    this.page = 1;
-  }
+  // resetPage() {
+  //   this.page = 1;
+  // }
 }
