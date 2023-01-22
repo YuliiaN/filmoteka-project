@@ -1,6 +1,8 @@
 import ApiService from './api';
 import renderTrailerCard from './templates/trailer-card';
 
+// comment
+
 const trailerRefs = {
   openModal: document.querySelectorAll('[data-modal-open-trailer]'),
   closeModal: document.querySelector('[data-modal-close-trailer]'),
