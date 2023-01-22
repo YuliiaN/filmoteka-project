@@ -17,19 +17,12 @@ async function openModal(event) {
   ) {
     toggleModal();
     filmId = event.target.closest('li').id;
-
     try {
       const response = await apiServiceModal.getMovieDetails(filmId);
-      console.log(response);
-      //   const data = response.results;
-      //   console.log(data);
-
       filmCard.innerHTML = renderModal(response);
     } catch (error) {
       console.log(error);
     }
-  } else {
-    console.log('hello');
   }
 }
 
