@@ -10,12 +10,12 @@ const apiServiceModal = new ApiService();
 
 let filmId;
 
-async function openModal(event) {
+async function openMainModal(event) {
   if (
     !event.target.classList.contains('gallery__trailer') &&
     !event.target.classList.contains('trailer-text')
   ) {
-    toggleModal();
+    toggleMainModal();
     filmId = event.target.closest('li').id;
     try {
       const response = await apiServiceModal.getMovieDetails(filmId);
@@ -26,9 +26,9 @@ async function openModal(event) {
   }
 }
 
-function toggleModal() {
+function toggleMainModal() {
   modal.classList.toggle('is-hidden');
 }
 
-galleryList.addEventListener('click', openModal);
-closeModalBtn.addEventListener('click', toggleModal);
+galleryList.addEventListener('click', openMainModal);
+closeModalBtn.addEventListener('click', toggleMainModal);
