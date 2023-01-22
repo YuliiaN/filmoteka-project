@@ -16,11 +16,11 @@ async function onFormSubmit(event) {
     const genres = await api.getGenresName();
     const data = response.results;
     const moviesCollection = createCardFilm(data, genres);
-    Notify.success(`We have found ${response.total_results} matches!`);
+    Notify.success(`We have found ${response.total_results} options!`);
     gallery.innerHTML = moviesCollection.join('');
     formEl.reset();
     if (!data.length) {
-      Notify.failure("We don't find any matches to your request.");
+      Notify.failure("We couldn't find a match on your request.");
     }
   } catch (error) {
     console.log(error);
