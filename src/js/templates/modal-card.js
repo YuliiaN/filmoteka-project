@@ -57,10 +57,5 @@ export default function renderModal({
       <p class="annotation">
         ${overview}
       </p>
-    
-    <div class="btn-wrap">
-      <button class="modal-btn-watched" type="button">add to Watched</button>
-      <button class="modal-btn-queue" type="button">add to queue</button>
-    </div>
     </div>`;
 }
