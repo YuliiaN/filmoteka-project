@@ -10,7 +10,6 @@ export default function renderModal({
 }) {
   const IMG_URL = 'https://image.tmdb.org/t/p/w500';
   const genresNames = genres.map(genre => genre.name);
-  console.log(IMG_URL + poster_path);
   return `
     <div class="modal-poster">
       <img src="${IMG_URL}${poster_path}" alt="${title}" />
@@ -49,7 +48,7 @@ export default function renderModal({
             <p class="text-right upper">${original_title}</p>
           </li>
           <li class="info-item-right">
-            <p class="text-right">${Object.values(genresNames)}</p>
+            <p class="text-right">${Object.values(genresNames).join(', ')}</p>
           </li>
         </ul>
       </div>
