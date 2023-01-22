@@ -19,9 +19,9 @@
   }
 }
 
-.footer__heart {
-  color: $orange-accent;
-}
+//.footer__heart {
+//  color: $orange-accent;
+//}
 
 .footer__text-link {
   text-decoration: underline;
@@ -31,5 +31,49 @@
   &:focus {
     text-shadow: $grey-modal 1px 0 10px;
     color: $orange-accent;
+  }
+}
+
+.heart {
+  animation: heartbeat 2s infinite;
+  background-color: $orange-accent;
+  display: inline-block;
+  height: 10px;
+  margin: 0 10px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  width: 10px;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: $orange-accent;
+  border-radius: 50%;
+  height: 10px;
+  position: absolute;
+  width: 10px;
+}
+
+.heart:before {
+  top: -5px;
+  left: 0;
+}
+
+.heart:after {
+  left: 5px;
+  top: 0;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1) rotate(-45deg);
+  }
+  20% {
+    transform: scale(1.25) rotate(-45deg);
+  }
+  40% {
+    transform: scale(1.5)  rotate(-45deg);
   }
 }

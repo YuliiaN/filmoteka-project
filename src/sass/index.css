@@ -378,6 +378,9 @@ button {
   width: 280px;
   margin: 0 auto;
   min-height: 443px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .gallery__item:hover {
@@ -410,8 +413,10 @@ button {
   width: 100%;
   background-color: #f5f4f4;
 }
+
 .gallery__film-poster {
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .gallery__trailer {
@@ -427,7 +432,6 @@ button {
   background-color: transparent;
   border: none;
   padding: 0;
-  cursor: pointer;
 }
 
 .trailer-text {
@@ -453,7 +457,7 @@ button {
 }
 @media screen and (min-width: 1280px) {
   .gallery__genre-film {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.2;
   }
 }
@@ -467,23 +471,23 @@ button {
 }
 @media screen and (min-width: 1280px) {
   .gallery__title-film {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.2;
   }
 }
 
 .gallery__title-box {
-  margin-top: 10px;
+  margin: 10px 0;
+  padding: 0 5px;
 }
 @media screen and (min-width: 768px) {
   .gallery__title-box {
-    margin-top: 8px;
-    margin-bottom: 0;
+    margin: 8px 0;
   }
 }
 @media screen and (min-width: 1280px) {
   .gallery__title-box {
-    margin-top: 12px;
+    margin: 12px 0;
   }
 }
 
@@ -903,10 +907,6 @@ body.trailer-open {
   }
 }
 
-.footer__heart {
-  color: #ff6b08;
-}
-
 .footer__text-link {
   text-decoration: underline;
   color: #545454;
@@ -916,6 +916,49 @@ body.trailer-open {
   color: #ff6b08;
 }
 
+.heart {
+  animation: heartbeat 2s infinite;
+  background-color: #ff6b08;
+  display: inline-block;
+  height: 10px;
+  margin: 0 10px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  width: 10px;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: #ff6b08;
+  border-radius: 50%;
+  height: 10px;
+  position: absolute;
+  width: 10px;
+}
+
+.heart:before {
+  top: -5px;
+  left: 0;
+}
+
+.heart:after {
+  left: 5px;
+  top: 0;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1) rotate(-45deg);
+  }
+  20% {
+    transform: scale(1.25) rotate(-45deg);
+  }
+  40% {
+    transform: scale(1.5) rotate(-45deg);
+  }
+}
 .backdrop__modal-team {
   position: fixed;
   top: 0;
