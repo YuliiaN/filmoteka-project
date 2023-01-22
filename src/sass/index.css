@@ -1109,4 +1109,30 @@ body.trailer-open {
   height: 30px;
 }
 
+.upward {
+  position: fixed;
+  bottom: 140px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background-image: url("../img/button-up.png");
+  background-size: cover;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+@media screen and (min-width: 768px) {
+  .upward {
+    bottom: 130px;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.upward-active {
+  visibility: visible;
+  opacity: 0.8;
+}
+
 /*# sourceMappingURL=index.css.map */
