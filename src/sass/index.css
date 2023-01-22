@@ -31,6 +31,16 @@ img {
   height: auto;
 }
 
+button {
+  background: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  cursor: pointer;
+}
+
 .container {
   padding-left: 15px;
   padding-right: 15px;
@@ -85,7 +95,7 @@ img {
   align-items: center;
 }
 
-.header__container {
+.header {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -94,32 +104,32 @@ img {
   background-image: url("../img/header_mob_1x-min.jpg");
 }
 @media screen and (min-width: 768px) {
-  .header__container {
+  .header {
     padding-bottom: 80px;
   }
 }
 @media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-  .header__container {
+  .header {
     background-image: url("../img/header_mob_2x-min.jpg");
   }
 }
 @media screen and (min-width: 768px) {
-  .header__container {
+  .header {
     background-image: url("../img/header_tab_1x-min.jpg");
   }
 }
 @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
-  .header__container {
+  .header {
     background-image: url("../img/header_tab_2x-min.jpg");
   }
 }
 @media screen and (min-width: 1280px) {
-  .header__container {
+  .header {
     background-image: url("../img/header_desk_1x-min.jpg");
   }
 }
 @media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (min-resolution: 192dpi), screen and (min-width: 1280px) and (min-resolution: 2dppx) {
-  .header__container {
+  .header {
     background-image: url("../img/header_desk_2x-min.jpg");
   }
 }
@@ -134,8 +144,6 @@ img {
   text-transform: uppercase;
   display: flex;
   gap: 40px;
-  font-family: "Roboto";
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.16;
@@ -152,8 +160,6 @@ img {
   }
 }
 .header__logo--word {
-  font-family: "Roboto";
-  font-style: normal;
   font-weight: 500;
   font-size: 30px;
   line-height: 1.7;
@@ -194,7 +200,7 @@ img {
   width: 100%;
   height: 3px;
   background-color: #ff001b;
-  border-radius: 2px;
+  border-radius: wpx;
 }
 
 .header__form {
@@ -259,36 +265,37 @@ img {
   padding-bottom: 10px;
 }
 
-.library__container {
+.library__header {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   padding-top: 40px;
-  padding-bottom: 60px;
+  padding-bottom: 62px;
   background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../img/header_libr_mob1-min.jpg");
 }
 @media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-  .library__container {
+  .library__header {
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../img/header_libr_mob2-min.jpg");
   }
 }
 @media screen and (min-width: 768px) {
-  .library__container {
+  .library__header {
+    padding-bottom: 60px;
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../img/header_libr_tab1-min.jpg");
   }
 }
 @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
-  .library__container {
+  .library__header {
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../img/header_libr_tab2-min.jpg");
   }
 }
 @media screen and (min-width: 1280px) {
-  .library__container {
+  .library__header {
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../img/header_libr_desk1-min.jpg");
   }
 }
 @media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (min-resolution: 192dpi), screen and (min-width: 1280px) and (min-resolution: 2dppx) {
-  .library__container {
+  .library__header {
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../img/header_libr_desk2-min.jpg");
   }
 }
@@ -320,14 +327,12 @@ img {
   width: 130px;
   height: 44px;
   font-family: "Roboto";
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   text-transform: uppercase;
   border-radius: 5px;
   gap: 20px;
-  cursor: pointer;
 }
 @media screen and (min-width: 768px) {
   .library__button {
@@ -344,7 +349,7 @@ img {
 .button__watched {
   background-color: #ff6b08;
   box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
-  border: inherit;
+  border: none;
 }
 
 .gallery {
@@ -819,16 +824,6 @@ body.trailer-open {
   .modal-btn-queue {
     width: 136px;
   }
-}
-
-button {
-  background: none;
-  appearance: none;
-  -webkit-appearance: none;
-  -ms-appearance: none;
-  -moz-appearance: none;
-  border: none;
-  cursor: pointer;
 }
 
 .page-btn {
