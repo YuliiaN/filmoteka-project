@@ -22,7 +22,7 @@ async function addMovies() {
     paginationButtons.onChange(async e => {
       addGalleryAPI.page = e.target.value;
       const movies = await addGalleryAPI.getPopularMovies();
-      const collection = createCardFilm(movies.results);
+      const collection = createCardFilm(movies.results, genres);
       galleryList.innerHTML = collection.join('');
     });
   } catch (error) {
