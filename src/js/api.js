@@ -28,6 +28,24 @@ export default class ApiService {
     }
   }
 
+  // the method for getting name of genres
+
+  async getGenresName() {
+    try {
+      const {data:{genres}}  = await axios.get(
+        `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`
+      );
+       console.log('-'.repeat(60));
+       console.log(genres);
+       console.log('-'.repeat(60));
+      return genres;
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
+
+  }
+
   // метод для получения детальной информации про фильм (для модалки), принимает айди фильма
   // https://developers.themoviedb.org/3/movies/get-movie-details
 
