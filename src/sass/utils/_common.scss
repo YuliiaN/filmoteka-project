@@ -13,3 +13,13 @@ img {
   width: 100%;
   height: auto;
 }
+
+button {
+  background: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  cursor: pointer;
+}
