@@ -4,24 +4,22 @@
     closeModalBtn: document.querySelector('[data-modal-close-team]'),
     modal: document.querySelector('[data-modal-team]'),
   };
-  const backdrop = document.querySelector('.backdrop__modal-team');
-  backdrop.addEventListener('click', toggleModal);
+  refs.modal.addEventListener('click', toggleModal);
   refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
 
-  function toggleModal() {
-    refs.modal.classList.toggle('is-hidden');
+  function toggleModal(e) {
+    if (Object.values(refs).includes(e.target)) {
+      refs.modal.classList.toggle('is-hidden');
+    }
   }
 
   window.addEventListener('keydown', closeModalByEscape);
 
   function closeModalByEscape(e) {
     if (e.code === 'Escape' && !refs.modal.classList.value.includes('is-hidden')) {
-      toggleModal();
+      refs.modal.classList.toggle('is-hidden');
     }
   }
-
-
 })();
 
 
