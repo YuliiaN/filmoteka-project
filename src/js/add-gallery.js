@@ -13,11 +13,11 @@ async function addMovies() {
     const genres = await addGalleryAPI.getGenresName();
     const data = response.results;
     const collection = createCardFilm(data, genres);
-    
+
     galleryList.innerHTML = collection.join('');
 
     // Пагінація
-    const paginationButtons = new PaginationButton(response['total_pages'] );
+    const paginationButtons = new PaginationButton(response['total_pages']);
     paginationButtons.render(gallery);
     paginationButtons.onChange(async e => {
       addGalleryAPI.page = e.target.value;
@@ -30,11 +30,11 @@ async function addMovies() {
   }
 }
 
-async function addGenres(){
-  try {
-    const genres = await addGalleryAPI.getGenresName();
-    const collection = createCardFilm({genres});
-  }catch (error) {
-    console.log(error);
-  }
-}
+// async function addGenres(){
+//   try {
+//     const genres = await addGalleryAPI.getGenresName();
+//     const collection = createCardFilm({genres});
+//   }catch (error) {
+//     console.log(error);
+//   }
+// }
