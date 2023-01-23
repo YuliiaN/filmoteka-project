@@ -5,11 +5,17 @@ export default function renderModal({
   vote_average,
   vote_count,
   popularity,
+  id,
   original_title,
   overview,
 }) {
   const IMG_URL = 'https://image.tmdb.org/t/p/w500';
   const genresNames = genres.map(genre => genre.name);
+
+  // set id for local storage
+  const modalWindow = document.querySelector('.modal');
+  modalWindow.setAttribute('data-id', id);
+
   return `
     <div class="poster-wrap">
       <img src="${IMG_URL}${poster_path}" alt="${title}" class="modal-poster"/>

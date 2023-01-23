@@ -20,6 +20,8 @@ async function onFormSubmit(event) {
     formEl.reset();
     if (!data.length) {
       Notify.failure(`We couldn't find a match on "${api.query}"" request`);
+      const pagination = document.querySelector('.pagination-buttons');
+      pagination.innerHTML = '';
     } else {
       Notify.success(`We have found ${response.total_results} options!`);
     }

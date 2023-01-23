@@ -40,6 +40,7 @@ function toggleTrailerModal() {
 
 function onBodyToggle() {
   trailerRefs.body.classList.toggle('trailer-open');
+  stopVideo();
 }
 
 function onClickBackdropClose(event) {
@@ -74,7 +75,13 @@ async function setVideo(id) {
     const key = trailer.key;
     const markup = renderTrailerCard(key);
     trailerRefs.video.innerHTML = markup;
+    console.dir(trailerRefs.video);
+    console.dir(trailerRefs);
   } catch (error) {
     console.log(error);
   }
+}
+
+function stopVideo() {
+  trailerRefs.video.innerHTML = '';
 }
