@@ -1,5 +1,6 @@
 import ApiService from './api.js';
 import renderModal from './templates/modal-card.js';
+import { chooseButton } from './into-local-storage.js';
 
 const galleryList = document.querySelector('.gallery__list');
 const modalBackdrop = document.querySelector('[data-modal]');
@@ -17,6 +18,8 @@ async function showMainModal(event) {
   ) {
     openMainModal();
     filmId = event.target.closest('li').id;
+    const buttonsContainer = document.querySelector('.btn-wrap');
+    buttonsContainer.addEventListener('click', chooseButton);
     try {
       const response = await apiServiceModal.getMovieDetails(filmId);
       filmCard.innerHTML = renderModal(response);

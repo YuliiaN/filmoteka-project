@@ -2,16 +2,16 @@ import ApiService from './api';
 import { Notify } from 'notiflix';
 
 const storageApi = new ApiService();
-const buttonsContainer = document.querySelector('.btn-wrap');
+// const buttonsContainer = document.querySelector('.btn-wrap');
 const KEY_WATCHED = 'watched';
 const KEY_QUEUE = 'queue';
 let moviesWatched = [];
 let moviesQueue = [];
 
-buttonsContainer.addEventListener('click', chooseButton);
+// buttonsContainer.addEventListener('click', chooseButton);
 checkStorageState();
 
-function chooseButton(event) {
+export function chooseButton(event) {
   const target = event.target;
   const type = target.dataset.button;
   const movie = {
