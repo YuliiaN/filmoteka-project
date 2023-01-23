@@ -2,6 +2,7 @@ import ApiService from './api.js';
 import createCardFilm from './templates/main-card.js';
 import { PaginationButton } from './pagination';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { addPreloader } from './preloader.js';
 
 const addGalleryAPI = new ApiService();
 const gallery = document.querySelector('.gallery');
@@ -17,7 +18,6 @@ async function addMovies() {
     const collection = createCardFilm(data, genres);
     galleryList.innerHTML = collection.join('');
     Loading.remove();
-
 
     // Пагінація
     const paginationButtons = new PaginationButton(response['total_pages']);
@@ -43,10 +43,3 @@ async function addMovies() {
 //     console.log(error);
 //   }
 // }
-
-
-
-
-function addPreloader() {
-  Loading.pulse({ svgColor: 'rgb(236, 248, 5)' });
-}
