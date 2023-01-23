@@ -3,6 +3,9 @@ export default function createCardFilm(movies, genres) {
 
   const cardFilm = movies.map(
     ({ id, title, poster_path, genre_ids, release_date }) => {
+      if (!poster_path) {
+        return;
+      }
       const date = new Date(release_date).getFullYear();
       const movieGenres = genres
         .filter(item => genre_ids.includes(item.id))
@@ -11,7 +14,7 @@ export default function createCardFilm(movies, genres) {
         .join(', ');
       return `<li class="gallery__item" id="${id}">
         <div class="gallery__film-box">
-          <img src="${IMG_URL}${poster_path}" alt="${title}" class="gallery__film-poster" />
+          <img src="${IMG_URL}${poster_path}" alt="${title}" class="gallery__film-poster"/>
           <button type="button" class="gallery__trailer">
             <span class="trailer-text">Watch trailer</span>
           </button>

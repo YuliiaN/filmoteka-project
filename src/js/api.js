@@ -19,7 +19,7 @@ export default class ApiService {
   async getPopularMovies() {
     try {
       const response = await axios.get(
-        `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${this.page}`
+        `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${this.page}`
       );
       const data = response.data;
       return data;

@@ -76,6 +76,11 @@
   background-color: transparent;
   border: none;
   border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   transition: background-color $time cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 
@@ -86,12 +91,12 @@
 
   &:hover,
   &:focus {
-    background-color: $red-error;
+    background-color: $orange-accent;
   }
 
   @media screen and (min-width: 768px) {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
   }
 }
 .modal-team__close-icon {
