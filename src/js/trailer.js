@@ -77,6 +77,9 @@ async function setVideo(id) {
     trailerRefs.video.innerHTML = markup;
     console.dir(trailerRefs.video);
     console.dir(trailerRefs);
+
+
+
   } catch (error) {
     console.log(error);
   }

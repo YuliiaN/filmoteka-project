@@ -4,7 +4,7 @@ window.addEventListener('scroll', () => {
 });
 upwardBtn.addEventListener('click', scrollTop);
 
-function scrollTop() {
+export function scrollTop() {
   window.scrollTo({
       top: 0,
       behavior: 'smooth',
