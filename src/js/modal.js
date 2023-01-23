@@ -18,11 +18,12 @@ async function showMainModal(event) {
   ) {
     openMainModal();
     filmId = event.target.closest('li').id;
-    const buttonsContainer = document.querySelector('.btn-wrap');
-    buttonsContainer.addEventListener('click', chooseButton);
+
     try {
       const response = await apiServiceModal.getMovieDetails(filmId);
       filmCard.innerHTML = renderModal(response);
+      const buttonsContainer = document.querySelector('.btn-wrap');
+      buttonsContainer.addEventListener('click', chooseButton);
     } catch (error) {
       console.log(error);
     }
@@ -58,11 +59,10 @@ function onBtnCloseMainModal() {
   closeMainModal();
 }
 
-function onBackdropCLoseMainModal() {
-  closeMainModal();
+function onBackdropCLoseMainModal(event) {
+  if (event.target === event.currentTarget) {
+    closeMainModal();
+  }
 }
 
 galleryList.addEventListener('click', showMainModal);
-closeModalBtn.addEventListener('click', onBtnCloseMainModal);
-document.addEventListener('keydown', onEscapeCloseMainModal);
-modalBackdrop.addEventListener('click', onBackdropCLoseMainModal);

@@ -58,5 +58,21 @@ export default function renderModal({
       <p class="annotation">
         ${overview}
       </p>
+      <div class="btn-wrap">
+      <button
+        class="modal-btn-watched modal-btn"
+        type="button"
+        data-button="watched"
+      >
+        add to watched
+      </button>
+      <button
+        class="modal-btn-queue modal-btn"
+        type="button"
+        data-button="queue"
+      >
+        add to queue
+      </button>
+    </div>
     </div>`;
 }
