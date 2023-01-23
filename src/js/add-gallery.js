@@ -3,6 +3,7 @@ import createCardFilm from './templates/main-card.js';
 import { PaginationButton } from './pagination';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { addPreloader } from './preloader.js';
+import { scrollTop } from './button-up';
 
 const addGalleryAPI = new ApiService();
 const gallery = document.querySelector('.gallery');
@@ -23,6 +24,7 @@ async function addMovies() {
     const paginationButtons = new PaginationButton(response['total_pages']);
     paginationButtons.render(gallery);
     paginationButtons.onChange(async e => {
+      scrollTop()
       addGalleryAPI.page = e.target.value;
       addPreloader();
       const movies = await addGalleryAPI.getPopularMovies();

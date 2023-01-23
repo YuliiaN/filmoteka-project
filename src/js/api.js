@@ -1,4 +1,9 @@
 import axios from 'axios';
+import { PaginationButton } from './pagination';
+import { scrollTop } from './button-up';
+import { addPreloader } from './preloader';
+import createCardFilm from './templates/main-card';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'b72e97d50f503cf310444389e0d21ec6';
