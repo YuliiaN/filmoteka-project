@@ -1,25 +1,30 @@
 import createCardFilm from './templates/main-card';
 import ApiService from './api';
-import { Notify } from 'notiflix';
+import { Notify, Loading } from 'notiflix';
+import { addPreloader } from './preloader.js';
 
 const inputEl = document.querySelector('.header__input');
 const formEl = document.querySelector('.header__form');
 const gallery = document.querySelector('.gallery__list');
-const api = new ApiService();
+const apiForInput = new ApiService();
 
 formEl.addEventListener('submit', onFormSubmit);
 async function onFormSubmit(event) {
   event.preventDefault();
-  api.query = inputEl.value;
+  apiForInput.query = inputEl.value;
   try {
-    const response = await api.getMovieByQuery(api.query);
-    const genres = await api.getGenresName();
+    addPreloader();
+    const response = await apiForInput.getMovieByQuery(apiForInput.query);
+    const genres = await apiForInput.getGenresName();
+    Loading.remove();
     const data = response.results;
     const moviesCollection = createCardFilm(data, genres);
     gallery.innerHTML = moviesCollection.join('');
     formEl.reset();
     if (!data.length) {
-      Notify.failure(`We couldn't find a match on "${api.query}"" request`);
+      Notify.failure(
+        `We couldn't find a match on "${apiForInput.query}"" request`
+      );
       const pagination = document.querySelector('.pagination-buttons');
       pagination.innerHTML = '';
     } else {
