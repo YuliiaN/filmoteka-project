@@ -54,9 +54,16 @@
   position: absolute;
   top: 8px;
   right: 8px;
-  background-color: $white-main;
-  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 50%;
   border: none;
+  transition: background-color $time $cubic;
+
+  &:hover,
+  &:focus {
+    background-color: $orange-accent;
+  }
 }
 
 .modal-poster {
