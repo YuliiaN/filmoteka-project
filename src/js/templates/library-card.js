@@ -1,16 +1,13 @@
 export function renderLibrary(arr) {
   const IMG_URL = 'https://image.tmdb.org/t/p/w500';
-
   const libraryCard = arr.map(
-    ({ genres, id, poster_path, release_date, title }) => {
+    ({ id, title, poster_path, genres, release_date }) => {
       const date = new Date(release_date).getFullYear();
       const filteredGenres = genres
         .map(genre => genre.name)
-        .splice(0, 3)
+        .slice(0, 3)
         .join(', ');
-
-      return `
-      <li class="gallery__item" id="${id}">
+      return `<li class="gallery__item" id="${id}">
         <div class="gallery__film-box">
           <img src="${IMG_URL}${poster_path}" alt="${title}" class="gallery__film-poster"/>
           <button type="button" class="gallery__trailer">
@@ -24,20 +21,22 @@ export function renderLibrary(arr) {
       </li>`;
     }
   );
-
   return libraryCard;
 }
 
 // export function renderLibrary(arr) {
 //   const IMG_URL = 'https://image.tmdb.org/t/p/w500';
+
 //   const libraryCard = arr.map(
-//     ({ id, title, poster_path, genres, release_date }) => {
+//     ({ genres, id, poster_path, release_date, title }) => {
 //       const date = new Date(release_date).getFullYear();
 //       const filteredGenres = genres
 //         .map(genre => genre.name)
-//         .slice(0, 3)
+//         .splice(0, 3)
 //         .join(', ');
-//       return `<li class="gallery__item" id="${id}">
+
+//       return `
+//       <li class="gallery__item" id="${id}">
 //         <div class="gallery__film-box">
 //           <img src="${IMG_URL}${poster_path}" alt="${title}" class="gallery__film-poster"/>
 //           <button type="button" class="gallery__trailer">
@@ -51,5 +50,6 @@ export function renderLibrary(arr) {
 //       </li>`;
 //     }
 //   );
+
 //   return libraryCard;
 // }
