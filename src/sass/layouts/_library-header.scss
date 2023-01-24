@@ -75,18 +75,15 @@
 }
 
 .library__button {
-  background-color: transparent;
-  border: 1px solid $white-main;
-  color: $white-main;
   width: 130px;
   height: 44px;
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
-  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid $white-main;
   border-radius: 5px;
-  gap: 20px;
+  color: $white-main;
+
+  @extend %btn;
+
   @include mq(tab) {
     width: 152px;
   }

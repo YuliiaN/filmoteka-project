@@ -25,11 +25,15 @@ export function chooseButton(event) {
         const watchedInd = watchedIDs.indexOf(movie.id);
         moviesWatched.splice(watchedInd, 1);
         setRemoveNotify(movie.id);
+        removeActiveStatus(target);
+        target.textContent = 'add to watched';
         saveToWatched();
         return;
       } else {
         moviesWatched.push(movie);
         setAddNotify(movie.id);
+        setActiveStatus(target);
+        target.textContent = 'remove from watched';
         saveToWatched();
       }
       break;
@@ -39,11 +43,15 @@ export function chooseButton(event) {
         const queueInd = queueIDs.indexOf(movie.id);
         moviesQueue.splice(queueInd, 1);
         setRemoveNotify(movie.id);
+        removeActiveStatus(target);
+        target.textContent = 'add to queue';
         saveToQueue();
         return;
       } else {
         moviesQueue.push(movie);
         setAddNotify(movie.id);
+        setActiveStatus(target);
+        target.textContent = 'remove from watched';
         saveToQueue();
       }
   }
@@ -93,6 +101,14 @@ async function setRemoveNotify(id) {
   const response = await storageApi.getMovieDetails(id);
   const { title } = response;
   Notify.failure(`You've just deleted "${title}" from your library.`);
+}
+
+function setActiveStatus(button) {
+  button.classList.add('modal-btn-active');
+}
+
+function removeActiveStatus(button) {
+  button.classList.remove('modal-btn-active');
 }
 
 // function hasDuplicate(arr) {
