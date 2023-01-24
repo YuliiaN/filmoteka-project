@@ -1,5 +1,5 @@
 export default function renderTrailerCard(key) {
-  const YOUTUBE_URL = 'http://www.youtube.com/embed/';
+  const YOUTUBE_URL = 'https://www.youtube.com/embed/';
   return `<iframe
       class="trailer__video"
       src="${YOUTUBE_URL}${key}"
