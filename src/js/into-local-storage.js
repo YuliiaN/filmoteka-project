@@ -16,12 +16,6 @@ export function chooseButton(event) {
   const type = target.dataset.button;
   const movie = {
     id: target.closest('.modal').dataset.id,
-    // title: '',
-
-    // async getTitleName() {
-    //   const response = await storageApi.getMovieDetails(this.id);
-    //   this.title = response.title;
-    // },
   };
 
   switch (type) {
@@ -30,10 +24,12 @@ export function chooseButton(event) {
       if (watchedIDs.includes(movie.id)) {
         const watchedInd = watchedIDs.indexOf(movie.id);
         moviesWatched.splice(watchedInd, 1);
+        setRemoveNotify(movie.id);
         saveToWatched();
         return;
       } else {
         moviesWatched.push(movie);
+        setAddNotify(movie.id);
         saveToWatched();
       }
       break;
@@ -42,10 +38,12 @@ export function chooseButton(event) {
       if (queueIDs.includes(movie.id)) {
         const queueInd = queueIDs.indexOf(movie.id);
         moviesQueue.splice(queueInd, 1);
+        setRemoveNotify(movie.id);
         saveToQueue();
         return;
       } else {
         moviesQueue.push(movie);
+        setAddNotify(movie.id);
         saveToQueue();
       }
   }
@@ -83,6 +81,18 @@ function checkStorageState() {
     //   removeFromQueue(moviesQueue);
     // }
   }
+}
+
+async function setAddNotify(id) {
+  const response = await storageApi.getMovieDetails(id);
+  const { title } = response;
+  Notify.success(`You have added "${title}" to watch!`);
+}
+
+async function setRemoveNotify(id) {
+  const response = await storageApi.getMovieDetails(id);
+  const { title } = response;
+  Notify.failure(`You've just deleted "${title}" from your library.`);
 }
 
 // function hasDuplicate(arr) {

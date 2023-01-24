@@ -27,7 +27,7 @@ async function onFormSubmit(event) {
     formEl.reset();
     if (!data.length) {
       Notify.failure(
-        `We couldn't find a match on "${apiForInput.query}"" request`
+        `We couldn't find a match on "${apiForInput.query}"" request.`
       );
       const pagination = document.querySelector('.pagination-buttons');
       if (pagination) {
