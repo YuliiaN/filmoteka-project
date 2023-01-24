@@ -1,7 +1,7 @@
 import ApiService from './api.js';
 import { KEY_WATCHED, KEY_QUEUE } from './into-local-storage.js';
-import { addPreloader } from './preloader';
-import { Notify, Loading } from 'notiflix';
+// import { addPreloader } from './preloader';
+// import { Notify, Loading } from 'notiflix';
 import { renderLibrary } from './templates/library-card.js';
 
 const libraryApi = new ApiService();
