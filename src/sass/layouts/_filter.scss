@@ -1,12 +1,36 @@
-.filter__wrapper{
+.filter__wrapper {
   display: flex;
 }
-.filter-button{
+
+.filter-button,
+.filter {
   width: 100px;
   height: 40px;
+  border: none;
+  border-radius: 20px;
+  padding: 3px;
+  background-color: rgba(135, 135, 135, 0.2);
+
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-align: center;
+
+  transition: background-color $time $cubic, color $time $cubic;
+
+  &:hover,
+  &:focus {
+    background-color: $orange-accent;
+    color: $white-main;
+    outline: none;
+  }
 }
+
+.filter-button {
+  margin-right: 10px;
+}
+
 .filter {
-  color: $black-main;
+  cursor: pointer;
 }
 
 .form-filter {
@@ -15,6 +39,10 @@
   height: 40px;
   animation-name: Opacity;
   animation-duration: 1000ms;
+}
+
+.form-filter .option {
+  background-color: rgba(135, 135, 135, 0.2);
 }
 
 .is-hidden {
