@@ -3,8 +3,8 @@ import { Notify } from 'notiflix';
 
 const storageApi = new ApiService();
 // const buttonsContainer = document.querySelector('.btn-wrap');
-const KEY_WATCHED = 'watched';
-const KEY_QUEUE = 'queue';
+export const KEY_WATCHED = 'watched';
+export const KEY_QUEUE = 'queue';
 let moviesWatched = [];
 let moviesQueue = [];
 
