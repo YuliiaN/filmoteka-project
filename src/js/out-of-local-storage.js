@@ -7,6 +7,7 @@ const addGalleryAPI = new ApiService();
 const watchedBtn = document.querySelector('.library__button-watched');
 const queueBtn = document.querySelector('.library__button-queue');
 const libraryGallery = document.querySelector('.gallery__list');
+const activeClass = 'library__button-active';
 let moviesCollection = [];
 
 watchedBtn.addEventListener('click', getWatchedMovies);
@@ -14,6 +15,9 @@ queueBtn.addEventListener('click', getQueueMovies);
 getWatchedMovies();
 
 async function getWatchedMovies() {
+  queueBtn.classList.remove(activeClass);
+  watchedBtn.classList.add(activeClass);
+
   if (!localStorage.getItem(KEY_WATCHED)) {
     libraryGallery.innerHTML = '';
     return;
@@ -30,6 +34,9 @@ async function getWatchedMovies() {
 }
 
 async function getQueueMovies() {
+  watchedBtn.classList.remove(activeClass);
+  queueBtn.classList.add(activeClass);
+
   if (!localStorage.getItem(KEY_QUEUE)) {
     libraryGallery.innerHTML = '';
     return;
