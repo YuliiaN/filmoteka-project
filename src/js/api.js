@@ -1,14 +1,7 @@
 import axios from 'axios';
-import { PaginationButton } from './pagination';
-import { scrollTop } from './button-up';
-import { addPreloader } from './preloader';
-import createCardFilm from './templates/main-card';
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'b72e97d50f503cf310444389e0d21ec6';
-
-// в каждом своем файле js нужно создать экземпляр класса ApiService
 
 export default class ApiService {
   constructor() {
@@ -32,21 +25,6 @@ export default class ApiService {
     }
   }
 
-  // the method for getting name of genres
-
-  async getGenresName() {
-    try {
-      const {
-        data: { genres },
-      } = await axios.get(
-        `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`
-      );
-      return genres;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   // метод для получения детальной информации про фильм (для модалки), принимает айди фильма
   // https://developers.themoviedb.org/3/movies/get-movie-details
 
@@ -57,6 +35,21 @@ export default class ApiService {
       );
       const data = response.data;
       return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // the method for getting name of genres
+
+  async getGenresName() {
+    try {
+      const {
+        data: { genres },
+      } = await axios.get(
+        `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`
+      );
+      return genres;
     } catch (error) {
       console.log(error);
     }
@@ -100,11 +93,11 @@ export default class ApiService {
     this.searchQuery = newQuery;
   }
 
-  // incrementPage() {
-  //   this.page += 1;
-  // }
+  incrementPage() {
+    this.page += 1;
+  }
 
-  // resetPage() {
-  //   this.page = 1;
-  // }
+  resetPage() {
+    this.page = 1;
+  }
 }
