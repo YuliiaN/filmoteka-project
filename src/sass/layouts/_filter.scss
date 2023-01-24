@@ -1,0 +1,23 @@
+.filter__wrapper{
+  display: flex;
+}
+.filter-button{
+  width: 100px;
+  height: 40px;
+}
+.filter {
+  color: $black-main;
+}
+
+.form-filter {
+  display: flex;
+  width: 100px;
+  height: 40px;
+  animation-name: Opacity;
+  animation-duration: 1000ms;
+}
+
+.is-hidden {
+  visibility: hidden;
+  display: none;
+}

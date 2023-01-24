@@ -20,6 +20,17 @@ export default class ApiService {
   // метод для получения на первую страничку популярных запросов, принимает параметр page
   // https://developers.themoviedb.org/3/trending/get-trending
 
+  async getMoviesByGenre(genre) {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en&sort_by=popularity.desc&page=${this.page}&with_genres=${genre}`
+      );
+      const data = response.data;
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   async getPopularMovies() {
     try {
       const response = await axios.get(
