@@ -5,6 +5,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
 }
 
 .backdrop.is-hidden {
@@ -19,21 +20,32 @@
   left: 50%;
   transform: translate(-50%, -50%);
   min-width: 280px;
+  height: 90%;
+  overflow-y: auto;
 
   padding: 48px 20px 40px;
   background-color: $white-main;
   transform: translate(-50%, -50%) scale(1);
   transition: $time $cubic;
 
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $orange-accent;
+    border-radius: 10px;
+  }
+
   @include mq('tab-only') {
     width: 704px;
-    min-height: 552px;
+    height: 552px;
     padding: 40px 72px 40px 36px;
   }
 
   @include mq('desk') {
     width: 806px;
-    min-height: 558px;
+    height: 558px;
     padding: 40px 12px;
   }
 }
