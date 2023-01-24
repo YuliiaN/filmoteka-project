@@ -1,5 +1,6 @@
 import ApiService from './api.js';
 import renderModal from './templates/modal-card.js';
+import { KEY_WATCHED, KEY_QUEUE } from './into-local-storage.js';
 import { chooseButton } from './into-local-storage.js';
 
 const galleryList = document.querySelector('.gallery__list');
@@ -23,7 +24,10 @@ async function showMainModal(event) {
     try {
       const response = await apiServiceModal.getMovieDetails(filmId);
       filmCard.innerHTML = renderModal(response);
+
+      // modal buttons
       const buttonsContainer = document.querySelector('.btn-wrap');
+      checkButtonsActivity(filmId);
       buttonsContainer.addEventListener('click', chooseButton);
     } catch (error) {
       console.log(error);
@@ -73,3 +77,30 @@ function onBodyScroll() {
 }
 
 galleryList.addEventListener('click', showMainModal);
+
+function checkButtonsActivity(id) {
+  if (!localStorage.length) {
+    return;
+  }
+
+  const watchedBtn = document.querySelector('.modal-btn-watched');
+  const queueBtn = document.querySelector('.modal-btn-queue');
+  if (localStorage.getItem(KEY_WATCHED)) {
+    const data = JSON.parse(localStorage.getItem(KEY_WATCHED));
+    data.forEach(item => {
+      if (item.id === id) {
+        watchedBtn.classList.add('modal-btn-active');
+        watchedBtn.textContent = 'remove from watched';
+      }
+    });
+  }
+  if (localStorage.getItem(KEY_QUEUE)) {
+    const data = JSON.parse(localStorage.getItem(KEY_QUEUE));
+    data.forEach(item => {
+      if (item.id === id) {
+        queueBtn.classList.add('modal-btn-active');
+        queueBtn.textContent = 'remove from queue';
+      }
+    });
+  }
+}

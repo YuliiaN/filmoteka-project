@@ -1,15 +1,12 @@
 import ApiService from './api';
 import { Notify } from 'notiflix';
-// comment
 
-const storageApi = new ApiService();
-// const buttonsContainer = document.querySelector('.btn-wrap');
 export const KEY_WATCHED = 'watched';
+const storageApi = new ApiService();
 export const KEY_QUEUE = 'queue';
 let moviesWatched = [];
 let moviesQueue = [];
 
-// buttonsContainer.addEventListener('click', chooseButton);
 checkStorageState();
 
 export function chooseButton(event) {
@@ -31,10 +28,10 @@ export function chooseButton(event) {
         saveToWatched();
         return;
       } else {
-        moviesWatched.push(movie);
         setAddNotify(movie.id);
         setActiveStatus(target);
         target.textContent = 'remove from watched';
+        moviesWatched.push(movie);
         saveToWatched();
       }
       break;
@@ -49,10 +46,10 @@ export function chooseButton(event) {
         saveToQueue();
         return;
       } else {
-        moviesQueue.push(movie);
         setAddNotify(movie.id);
         setActiveStatus(target);
         target.textContent = 'remove from queue';
+        moviesQueue.push(movie);
         saveToQueue();
       }
   }
@@ -76,9 +73,6 @@ function checkStorageState() {
     if (!moviesWatched.length) {
       localStorage.removeItem(KEY_WATCHED);
     }
-    // if (hasDuplicate(moviesWatched)) {
-    //   removeFromWatched(moviesWatched);
-    // }
   }
 
   if (localStorage.getItem(KEY_QUEUE)) {
@@ -86,9 +80,6 @@ function checkStorageState() {
     if (!moviesQueue.length) {
       localStorage.removeItem(KEY_QUEUE);
     }
-    // if (hasDuplicate(moviesQueue)) {
-    //   removeFromQueue(moviesQueue);
-    // }
   }
 }
 
@@ -111,35 +102,3 @@ function setActiveStatus(button) {
 function removeActiveStatus(button) {
   button.classList.remove('modal-btn-active');
 }
-
-// function hasDuplicate(arr) {
-//   const items = arr.map(item => item.id);
-//   const doubled = items.find(
-//     elem => items.indexOf(elem) !== items.lastIndexOf(elem)
-//   );
-//   return doubled;
-// }
-
-// function removeFromWatched(arr) {
-//   const arrValues = arr.map(item => item.id); // достает ЗНАЧЕНИЯ объектов
-
-//   const original = arrValues.indexOf(hasDuplicate(arr)); // удаляет первое появление айди
-//   arr.splice(original, 1);
-//   // saveToWatched();
-
-//   const doubled = arrValues.lastIndexOf(hasDuplicate(arr)); // удаляет второе появление, как маркер удалить из хранилища
-//   arr.splice(doubled, 1);
-//   saveToWatched();
-// }
-
-// function removeFromQueue(arr) {
-//   const arrValues = arr.map(item => item.id);
-
-//   const original = arrValues.indexOf(hasDuplicate(arr));
-//   arr.splice(original, 1);
-//   saveToQueue();
-
-//   const doubled = arrValues.lastIndexOf(hasDuplicate(arr));
-//   arr.splice(doubled, 1);
-//   saveToQueue();
-// }
