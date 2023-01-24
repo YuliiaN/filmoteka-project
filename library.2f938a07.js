@@ -1,2 +1,2 @@
 !function(){var e={openModalBtn:document.querySelector("[data-modal-open-team]"),closeModalBtn:document.querySelector("[data-modal-close-team]"),modal:document.querySelector("[data-modal-team]")};function d(d){Object.values(e).includes(d.target)&&e.modal.classList.toggle("is-hidden")}e.modal.addEventListener("click",d),e.openModalBtn.addEventListener("click",d),window.addEventListener("keydown",(function(d){"Escape"!==d.code||e.modal.classList.value.includes("is-hidden")||e.modal.classList.toggle("is-hidden")}))}();
-//# sourceMappingURL=index.c76b037e.js.map
+//# sourceMappingURL=library.2f938a07.js.map
