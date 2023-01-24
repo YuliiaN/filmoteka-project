@@ -1,4 +1,9 @@
 import axios from 'axios';
+import { PaginationButton } from './pagination';
+import { scrollTop } from './button-up';
+import { addPreloader } from './preloader';
+import createCardFilm from './templates/main-card';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'b72e97d50f503cf310444389e0d21ec6';
@@ -15,6 +20,17 @@ export default class ApiService {
   // метод для получения на первую страничку популярных запросов, принимает параметр page
   // https://developers.themoviedb.org/3/trending/get-trending
 
+  async getMoviesByGenre(genre) {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en&sort_by=popularity.desc&page=${this.page}&with_genres=${genre}`
+      );
+      const data = response.data;
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   async getPopularMovies() {
     try {
       const response = await axios.get(
