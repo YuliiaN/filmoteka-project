@@ -26,13 +26,28 @@ export function chooseButton(event) {
 
   switch (type) {
     case 'watched':
-      moviesWatched.push(movie);
-      saveToWatched();
+      const watchedIDs = moviesWatched.map(item => item.id);
+      if (watchedIDs.includes(movie.id)) {
+        const watchedInd = watchedIDs.indexOf(movie.id);
+        moviesWatched.splice(watchedInd, 1);
+        saveToWatched();
+        return;
+      } else {
+        moviesWatched.push(movie);
+        saveToWatched();
+      }
       break;
     case 'queue':
-      moviesQueue.push(movie);
-      saveToQueue();
-      break;
+      const queueIDs = moviesQueue.map(item => item.id);
+      if (queueIDs.includes(movie.id)) {
+        const queueInd = queueIDs.indexOf(movie.id);
+        moviesQueue.splice(queueInd, 1);
+        saveToQueue();
+        return;
+      } else {
+        moviesQueue.push(movie);
+        saveToQueue();
+      }
   }
 }
 
@@ -51,47 +66,53 @@ function checkStorageState() {
 
   if (localStorage.getItem(KEY_WATCHED)) {
     moviesWatched = JSON.parse(localStorage.getItem(KEY_WATCHED));
-    if (hasDuplicate(moviesWatched)) {
-      removeFromWatched(moviesWatched);
+    if (!moviesWatched.length) {
+      localStorage.removeItem(KEY_WATCHED);
     }
+    // if (hasDuplicate(moviesWatched)) {
+    //   removeFromWatched(moviesWatched);
+    // }
   }
 
   if (localStorage.getItem(KEY_QUEUE)) {
     moviesQueue = JSON.parse(localStorage.getItem(KEY_QUEUE));
-    if (hasDuplicate(moviesQueue)) {
-      removeFromQueue(moviesQueue);
+    if (!moviesQueue.length) {
+      localStorage.removeItem(KEY_QUEUE);
     }
+    // if (hasDuplicate(moviesQueue)) {
+    //   removeFromQueue(moviesQueue);
+    // }
   }
 }
 
-function hasDuplicate(arr) {
-  const items = arr.map(item => item.id);
-  const doubled = items.find(
-    elem => items.indexOf(elem) !== items.lastIndexOf(elem)
-  );
-  return doubled;
-}
+// function hasDuplicate(arr) {
+//   const items = arr.map(item => item.id);
+//   const doubled = items.find(
+//     elem => items.indexOf(elem) !== items.lastIndexOf(elem)
+//   );
+//   return doubled;
+// }
 
-function removeFromWatched(arr) {
-  const arrValues = arr.map(item => item.id); // достает ЗНАЧЕНИЯ объектов
+// function removeFromWatched(arr) {
+//   const arrValues = arr.map(item => item.id); // достает ЗНАЧЕНИЯ объектов
 
-  const original = arrValues.indexOf(hasDuplicate(arr)); // удаляет первое появление айди
-  arr.splice(original, 1);
-  saveToWatched();
+//   const original = arrValues.indexOf(hasDuplicate(arr)); // удаляет первое появление айди
+//   arr.splice(original, 1);
+//   // saveToWatched();
 
-  const doubled = arrValues.lastIndexOf(hasDuplicate(arr)); // удаляет второе появление, как маркер удалить из хранилища
-  arr.splice(doubled, 1);
-  saveToWatched();
-}
+//   const doubled = arrValues.lastIndexOf(hasDuplicate(arr)); // удаляет второе появление, как маркер удалить из хранилища
+//   arr.splice(doubled, 1);
+//   saveToWatched();
+// }
 
-function removeFromQueue(arr) {
-  const arrValues = arr.map(item => item.id); // достает ЗНАЧЕНИЯ объектов
+// function removeFromQueue(arr) {
+//   const arrValues = arr.map(item => item.id);
 
-  const original = arrValues.indexOf(hasDuplicate(arr)); // удаляет первое появление айди
-  arr.splice(original, 1);
-  saveToQueue();
+//   const original = arrValues.indexOf(hasDuplicate(arr));
+//   arr.splice(original, 1);
+//   saveToQueue();
 
-  const doubled = arrValues.lastIndexOf(hasDuplicate(arr)); // удаляет второе появление, как маркер удалить из хранилища
-  arr.splice(doubled, 1);
-  saveToQueue();
-}
+//   const doubled = arrValues.lastIndexOf(hasDuplicate(arr));
+//   arr.splice(doubled, 1);
+//   saveToQueue();
+// }
