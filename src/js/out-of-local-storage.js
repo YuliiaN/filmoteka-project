@@ -4,8 +4,8 @@ import { KEY_WATCHED, KEY_QUEUE } from './into-local-storage.js';
 
 const addGalleryAPI = new ApiService();
 
-const watchedBtn = document.querySelector('.button__watched');
-const queueBtn = document.querySelector('.button__queue');
+const watchedBtn = document.querySelector('.library__button-watched');
+const queueBtn = document.querySelector('.library__button-queue');
 const libraryGallery = document.querySelector('.gallery__list');
 let moviesCollection = [];
 
