@@ -6,6 +6,7 @@ const galleryList = document.querySelector('.gallery__list');
 const modalBackdrop = document.querySelector('[data-modal]');
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const filmCard = document.querySelector('.js-modal-wrap');
+const bodyRef = document.querySelector('body');
 
 const apiServiceModal = new ApiService();
 
@@ -32,6 +33,7 @@ async function showMainModal(event) {
 
 function openMainModal() {
   modalBackdrop.classList.remove('is-hidden');
+  onBodyScroll();
 
   closeModalBtn.addEventListener('click', onBtnCloseMainModal);
   document.addEventListener('keydown', onEscapeCloseMainModal);
@@ -40,6 +42,7 @@ function openMainModal() {
 
 function closeMainModal() {
   modalBackdrop.classList.add('is-hidden');
+  onBodyScroll();
 
   closeModalBtn.removeEventListener('click', onBtnCloseMainModal);
   document.removeEventListener('keydown', onEscapeCloseMainModal);
@@ -63,6 +66,10 @@ function onBackdropCLoseMainModal(event) {
   if (event.target === event.currentTarget) {
     closeMainModal();
   }
+}
+
+function onBodyScroll() {
+  bodyRef.classList.toggle('modal-open');
 }
 
 galleryList.addEventListener('click', showMainModal);

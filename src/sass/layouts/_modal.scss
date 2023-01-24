@@ -50,6 +50,11 @@
   }
 }
 
+body.modal-open {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .js-modal-wrap {
   @include mq('tab-only') {
     display: flex;
