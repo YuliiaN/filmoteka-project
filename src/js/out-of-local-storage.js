@@ -44,3 +44,53 @@
 //     libraryGallery.innerHTML = markup.join('');
 //   }
 // }
+
+import ApiService from './api.js';
+import { KEY_WATCHED, KEY_QUEUE } from './into-local-storage.js';
+import { addPreloader } from './preloader';
+import { Notify, Loading } from 'notiflix';
+import { renderLibrary } from './templates/library-card.js';
+
+const libraryApi = new ApiService();
+export const libraryWatched = document.querySelector('.button__watched');
+export const libraryQueue = document.querySelector('.button__queue');
+let moviesCollection = [];
+const libraryGallery = document.querySelector('.gallery__list');
+
+libraryWatched.addEventListener('click', getWatchedMovies);
+libraryQueue.addEventListener('click', getQueueMovies);
+getWatchedMovies();
+
+async function getWatchedMovies() {
+  if (!localStorage.getItem(KEY_WATCHED)) {
+    libraryGallery.innerHTML = '';
+    return;
+  }
+  const data = JSON.parse(localStorage.getItem(KEY_WATCHED));
+  const responses = data.map(async item => {
+    const response = await libraryApi.getMovieDetails(item.id);
+
+    return response;
+  });
+
+  moviesCollection = await Promise.all(responses);
+  const arrMarkup = renderLibrary(moviesCollection);
+  libraryGallery.innerHTML = arrMarkup.join('');
+}
+
+async function getQueueMovies() {
+  if (!localStorage.getItem(KEY_QUEUE)) {
+    libraryGallery.innerHTML = '';
+    return;
+  }
+  const data = JSON.parse(localStorage.getItem(KEY_QUEUE));
+  const responses = data.map(async item => {
+    const response = await libraryApi.getMovieDetails(item.id);
+
+    return response;
+  });
+
+  moviesCollection = await Promise.all(responses);
+  const arrMarkup = renderLibrary(moviesCollection);
+  libraryGallery.innerHTML = arrMarkup.join('');
+}
