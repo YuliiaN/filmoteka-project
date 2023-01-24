@@ -15,22 +15,22 @@ async function addMovies() {
     addPreloader();
     const response = await addGalleryAPI.getPopularMovies();
     const genres = await addGalleryAPI.getGenresName();
+    Loading.remove();
     const data = response.results;
     const collection = createCardFilm(data, genres);
     galleryList.innerHTML = collection.join('');
-    Loading.remove();
 
     // Пагінація
     const paginationButtons = new PaginationButton(response['total_pages']);
     paginationButtons.render(gallery);
     paginationButtons.onChange(async e => {
-      scrollTop()
+      scrollTop();
       addGalleryAPI.page = e.target.value;
       addPreloader();
       const movies = await addGalleryAPI.getPopularMovies();
+      Loading.remove();
       const collection = createCardFilm(movies.results, genres);
       galleryList.innerHTML = collection.join('');
-      Loading.remove();
     });
   } catch (error) {
     console.log(error);

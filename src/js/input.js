@@ -27,13 +27,12 @@ async function onFormSubmit(event) {
     formEl.reset();
     if (!data.length) {
       Notify.failure(
-        `We couldn't find a match on "${apiForInput.query}"" request`,
+        `We couldn't find a match on "${apiForInput.query}"" request.`
       );
       const pagination = document.querySelector('.pagination-buttons');
       if (pagination) {
         pagination.remove();
       }
-
     } else {
       Notify.success(`We have found ${response.total_results} options!`);
       const pagination = document.querySelector('.pagination-buttons');
@@ -41,7 +40,9 @@ async function onFormSubmit(event) {
         pagination.remove();
       }
 
-      const paginationButtonsChoice = new PaginationButton(response['total_pages']);
+      const paginationButtonsChoice = new PaginationButton(
+        response['total_pages']
+      );
       paginationButtonsChoice.render(galleryMain);
       paginationButtonsChoice.onChange(async e => {
         scrollTop();
@@ -51,10 +52,8 @@ async function onFormSubmit(event) {
         const collection = createCardFilm(movies.results, genres);
         gallery.innerHTML = collection.join('');
         Loading.remove();
-
       });
     }
-
   } catch (error) {
     console.log(error);
   }
