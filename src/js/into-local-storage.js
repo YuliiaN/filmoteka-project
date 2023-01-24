@@ -51,7 +51,7 @@ export function chooseButton(event) {
         moviesQueue.push(movie);
         setAddNotify(movie.id);
         setActiveStatus(target);
-        target.textContent = 'remove from watched';
+        target.textContent = 'remove from queue';
         saveToQueue();
       }
   }
