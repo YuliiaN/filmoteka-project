@@ -15,7 +15,7 @@ filterButton.addEventListener('click', () => {
   formFilter.classList.toggle('is-hidden');
 });
 
-formFilter.addEventListener('change', (e) => {
+formFilter.addEventListener('change', e => {
   addMovies(e.target.value);
 });
 
@@ -27,7 +27,7 @@ async function addMovies(genre) {
     const data = response.results;
     const collection = createCardFilm(data, genres);
     galleryList.innerHTML = collection.join('');
-    Loading.remove();
+    Loading.remove(300);
 
     // Пагінація
     const pagination = document.querySelector('.pagination-buttons');
@@ -43,7 +43,7 @@ async function addMovies(genre) {
       const movies = await API.getPopularMovies();
       const collection = createCardFilm(movies.results, genres);
       galleryList.innerHTML = collection.join('');
-      Loading.remove();
+      Loading.remove(300);
     });
   } catch (error) {
     console.log(error);

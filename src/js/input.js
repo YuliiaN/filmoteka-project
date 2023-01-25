@@ -20,7 +20,7 @@ async function onFormSubmit(event) {
     addPreloader();
     const response = await apiForInput.getMovieByQuery(apiForInput.query);
     const genres = await apiForInput.getGenresName();
-    Loading.remove();
+    Loading.remove(300);
     const data = response.results;
     const moviesCollection = createCardFilm(data, genres);
     gallery.innerHTML = moviesCollection.join('');
@@ -51,7 +51,7 @@ async function onFormSubmit(event) {
         const movies = await apiForInput.getMovieByQuery(apiForInput.query);
         const collection = createCardFilm(movies.results, genres);
         gallery.innerHTML = collection.join('');
-        Loading.remove();
+        Loading.remove(300);
       });
     }
   } catch (error) {

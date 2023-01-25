@@ -31,7 +31,7 @@ async function getWatchedMovies() {
       return response;
     });
     moviesCollection = await Promise.all(responses);
-    Loading.remove();
+    Loading.remove(300);
     const markup = renderLibrary(moviesCollection);
     libraryGallery.innerHTML = markup.join('');
   }
@@ -52,7 +52,7 @@ async function getQueueMovies() {
       return response;
     });
     moviesCollection = await Promise.all(responses);
-    Loading.remove();
+    Loading.remove(300);
     const markup = renderLibrary(moviesCollection);
     libraryGallery.innerHTML = markup.join('');
   }
