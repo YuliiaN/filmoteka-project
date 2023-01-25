@@ -139,8 +139,14 @@ body.team-open {
   align-items: center;
   gap: 15px;
 
+  text-align: center;
+
   @include mq(tab) {
     gap: 5px;
+  }
+
+  @include mq(desk) {
+    gap: 10px;
   }
 }
 

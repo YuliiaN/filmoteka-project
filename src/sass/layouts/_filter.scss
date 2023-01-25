@@ -15,6 +15,7 @@
   font-size: 14px;
   letter-spacing: 0.06em;
   text-align: center;
+  color: $black-main;
 
   transition: background-color $time $cubic, color $time $cubic;
 
@@ -40,6 +41,9 @@
   height: 40px;
   animation-name: Opacity;
   animation-duration: 1000ms;
+
+  color: $black-main;
+  text-align: center;
 }
 
 .form-filter .option {
