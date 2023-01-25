@@ -59,17 +59,27 @@
   @include mq(tab-only) {
     gap: 8px;
   }
+}
 
-  &--word {
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 1.7;
-    text-decoration: none;
-    color: $white-main;
+.header__logo-icon {
+  stroke: $white-main;
+}
 
-    @include mq(mob-only) {
-      display: none;
-    }
+.header__logo--word {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.7;
+  text-decoration: none;
+  color: $white-main;
+  transition: color $time $cubic;
+
+  &:hover,
+  &:focus {
+    color: $orange-accent;
+  }
+
+  @include mq(mob-only) {
+    display: none;
   }
 }
 
