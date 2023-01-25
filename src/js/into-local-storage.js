@@ -2,8 +2,9 @@ import ApiService from './api';
 import { Notify } from 'notiflix';
 
 export const KEY_WATCHED = 'watched';
-const storageApi = new ApiService();
 export const KEY_QUEUE = 'queue';
+const storageApi = new ApiService();
+const activeClassName = 'modal-btn-active';
 let moviesWatched = [];
 let moviesQueue = [];
 
@@ -23,13 +24,13 @@ export function chooseButton(event) {
         const watchedInd = watchedIDs.indexOf(movie.id);
         moviesWatched.splice(watchedInd, 1);
         setRemoveNotify(movie.id);
-        removeActiveStatus(target);
+        target.classList.remove(activeClassName);
         target.textContent = 'add to watched';
         saveToWatched();
         return;
       } else {
         setAddNotify(movie.id);
-        setActiveStatus(target);
+        target.classList.add(activeClassName);
         target.textContent = 'remove from watched';
         moviesWatched.push(movie);
         saveToWatched();
@@ -41,13 +42,13 @@ export function chooseButton(event) {
         const queueInd = queueIDs.indexOf(movie.id);
         moviesQueue.splice(queueInd, 1);
         setRemoveNotify(movie.id);
-        removeActiveStatus(target);
+        target.classList.remove(activeClassName);
         target.textContent = 'add to queue';
         saveToQueue();
         return;
       } else {
         setAddNotify(movie.id);
-        setActiveStatus(target);
+        target.classList.add(activeClassName);
         target.textContent = 'remove from queue';
         moviesQueue.push(movie);
         saveToQueue();
@@ -93,12 +94,4 @@ async function setRemoveNotify(id) {
   const response = await storageApi.getMovieDetails(id);
   const { title } = response;
   Notify.failure(`You've just deleted "${title}" from your library.`);
-}
-
-function setActiveStatus(button) {
-  button.classList.add('modal-btn-active');
-}
-
-function removeActiveStatus(button) {
-  button.classList.remove('modal-btn-active');
 }

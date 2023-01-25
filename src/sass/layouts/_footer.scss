@@ -48,7 +48,7 @@
 
 .heart:before,
 .heart:after {
-  content: "";
+  content: '';
   background-color: $orange-accent;
   border-radius: 50%;
   height: 10px;
@@ -74,6 +74,6 @@
     transform: scale(1.25) rotate(-45deg);
   }
   40% {
-    transform: scale(1.5)  rotate(-45deg);
+    transform: scale(1.5) rotate(-45deg);
   }
 }

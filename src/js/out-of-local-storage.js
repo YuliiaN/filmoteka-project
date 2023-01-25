@@ -1,6 +1,8 @@
 import ApiService from './api.js';
 import { renderLibrary } from './templates/library-card.js';
 import { KEY_WATCHED, KEY_QUEUE } from './into-local-storage.js';
+import { Loading } from 'notiflix';
+import { addPreloader } from './preloader.js';
 
 const addGalleryAPI = new ApiService();
 
@@ -22,12 +24,14 @@ async function getWatchedMovies() {
     libraryGallery.innerHTML = '';
     return;
   } else {
+    addPreloader();
     const watchedId = JSON.parse(localStorage.getItem(KEY_WATCHED));
     const responses = watchedId.map(async item => {
       const response = await addGalleryAPI.getMovieDetails(item.id);
       return response;
     });
     moviesCollection = await Promise.all(responses);
+    Loading.remove();
     const markup = renderLibrary(moviesCollection);
     libraryGallery.innerHTML = markup.join('');
   }
@@ -41,12 +45,14 @@ async function getQueueMovies() {
     libraryGallery.innerHTML = '';
     return;
   } else {
+    addPreloader();
     const queueId = JSON.parse(localStorage.getItem(KEY_QUEUE));
     const responses = queueId.map(async item => {
       const response = await addGalleryAPI.getMovieDetails(item.id);
       return response;
     });
     moviesCollection = await Promise.all(responses);
+    Loading.remove();
     const markup = renderLibrary(moviesCollection);
     libraryGallery.innerHTML = markup.join('');
   }
