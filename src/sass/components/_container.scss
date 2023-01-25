@@ -4,27 +4,11 @@
   margin: 0 auto;
   outline: 1px solid green;
 
-  @include mq(mob) {
-    width: 480px;
+  @include mq('tab') {
+    width: 734px;
   }
 
-  // <<<<<<< HEAD
-  @include mq(tab) {
-    padding-left: 32px;
-    padding-right: 32px;
-    width: 768px;
-  }
-
-  @include mq(desk) {
-    width: 1280px;
-    // =======
-    @include mq('tab') {
-      width: 734px;
-    }
-
-    @include mq('desk') {
-      width: 1246px;
-      // >>>>>>> dev
-    }
+  @include mq('desk') {
+    width: 1246px;
   }
 }
