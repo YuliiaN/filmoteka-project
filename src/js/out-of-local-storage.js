@@ -10,6 +10,7 @@ const watchedBtn = document.querySelector('.library__button-watched');
 const queueBtn = document.querySelector('.library__button-queue');
 const libraryGallery = document.querySelector('.gallery__list');
 const activeClass = 'library__button-active';
+const nothingYetPic = document.querySelector('.nothing_yet');
 let moviesCollection = [];
 
 watchedBtn.addEventListener('click', getWatchedMovies);
@@ -22,6 +23,7 @@ async function getWatchedMovies() {
 
   if (!localStorage.getItem(KEY_WATCHED)) {
     libraryGallery.innerHTML = '';
+    nothingYetPic.classList.add('nothing_yet-visible');
     return;
   } else {
     addPreloader();
@@ -34,6 +36,7 @@ async function getWatchedMovies() {
     Loading.remove(300);
     const markup = renderLibrary(moviesCollection);
     libraryGallery.innerHTML = markup.join('');
+    nothingYetPic.classList.remove('nothing_yet-visible');
   }
 }
 
@@ -43,6 +46,7 @@ async function getQueueMovies() {
 
   if (!localStorage.getItem(KEY_QUEUE)) {
     libraryGallery.innerHTML = '';
+    nothingYetPic.classList.add('nothing_yet-visible');
     return;
   } else {
     addPreloader();
@@ -55,5 +59,6 @@ async function getQueueMovies() {
     Loading.remove(300);
     const markup = renderLibrary(moviesCollection);
     libraryGallery.innerHTML = markup.join('');
+    nothingYetPic.classList.remove('nothing_yet-visible');
   }
 }
