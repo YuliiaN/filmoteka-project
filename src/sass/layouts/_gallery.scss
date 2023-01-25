@@ -20,9 +20,9 @@
   flex-direction: column;
   justify-content: center;
   width: 280px;
-  height: 470px;
+  // height: 470px;
   margin: 0 auto;
-  min-height: 440px;
+  // min-height: 440px;
   // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -39,12 +39,12 @@
 
   @include mq(tab) {
     width: 336px;
-    height: 552px;
+    // height: 552px;
     margin: 0;
   }
   @include mq(desk) {
     width: calc((100% - 32px) / 3);
-    height: 640px;
+    // height: 640px;
   }
 }
 
@@ -60,7 +60,7 @@
   background-color: #f5f4f4;
 
   @include mq(desk) {
-    height: 575px;
+    // height: 575px;
   }
 }
 

@@ -1,10 +1,13 @@
 .footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding-top: 30px;
   padding-bottom: 30px;
   background-color: $grey-bcg-footer;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer__text {
