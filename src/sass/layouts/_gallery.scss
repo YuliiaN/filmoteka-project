@@ -9,6 +9,7 @@
     align-items: baseline;
     gap: 32px;
   }
+
   @include mq(desk) {
     justify-content: center;
     column-gap: 16px;
@@ -124,6 +125,7 @@
   @include mq(tab) {
     margin: 8px 0;
   }
+
   @include mq(desk) {
     margin: 12px 0;
   }
@@ -131,8 +133,16 @@
 
 .nothing_yet {
   margin: 0 auto;
-  width: 700px;
+  width: 100%;
   display: none;
+
+  @include mq(tab) {
+    width: 600px;
+  }
+
+  @include mq(desk) {
+    width: 700px;
+  }
 }
 
 .nothing_yet-visible {
