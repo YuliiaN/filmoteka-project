@@ -15,7 +15,7 @@ async function addMovies() {
     addPreloader();
     const response = await addGalleryAPI.getPopularMovies();
     const genres = await addGalleryAPI.getGenresName();
-    Loading.remove(300);
+    Loading.remove(100);
     const data = response.results;
     const collection = createCardFilm(data, genres);
     galleryList.innerHTML = collection.join('');
