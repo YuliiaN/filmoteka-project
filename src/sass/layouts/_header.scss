@@ -4,9 +4,7 @@
   background-position: center;
   padding-top: 40px;
   padding-bottom: 92px;
-  @include mq(tab) {
-    padding-bottom: 80px;
-  }
+
   background-image: url('../img/header_mob_1x-min.jpg');
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
@@ -14,7 +12,9 @@
     (min-resolution: 2dppx) {
     background-image: url('../img/header_mob_2x-min.jpg');
   }
+
   @include mq(tab) {
+    padding-bottom: 80px;
     background-image: url('../img/header_tab_1x-min.jpg');
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
@@ -23,6 +23,7 @@
       background-image: url('../img/header_tab_2x-min.jpg');
     }
   }
+
   @include mq(desk) {
     background-image: url('../img/header_desk_1x-min.jpg');
     @media (min-device-pixel-ratio: 2),
@@ -38,6 +39,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   &--list {
     color: $white-main;
     text-transform: uppercase;
@@ -48,10 +50,12 @@
     line-height: 1.16;
   }
 }
+
 .header__logo {
   display: flex;
   align-items: center;
   gap: 10px;
+
   @include mq(tab-only) {
     gap: 8px;
   }
@@ -62,6 +66,7 @@
     line-height: 1.7;
     text-decoration: none;
     color: $white-main;
+
     @include mq(mob-only) {
       display: none;
     }

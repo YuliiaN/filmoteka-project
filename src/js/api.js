@@ -10,20 +10,6 @@ export default class ApiService {
     this.totalPages = 1;
   }
 
-  // метод для получения на первую страничку популярных запросов, принимает параметр page
-  // https://developers.themoviedb.org/3/trending/get-trending
-
-  async getMoviesByGenre(genre) {
-    try {
-      const response = await axios.get(
-        `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en&sort_by=popularity.desc&page=${this.page}&with_genres=${genre}`
-      );
-      const data = response.data;
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
-  }
   async getPopularMovies() {
     try {
       const response = await axios.get(
@@ -35,9 +21,6 @@ export default class ApiService {
       console.log(error);
     }
   }
-
-  // метод для получения детальной информации про фильм (для модалки), принимает айди фильма
-  // https://developers.themoviedb.org/3/movies/get-movie-details
 
   async getMovieDetails(id) {
     try {
@@ -51,7 +34,17 @@ export default class ApiService {
     }
   }
 
-  // the method for getting name of genres
+  async getMoviesByGenre(genre) {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en&sort_by=popularity.desc&page=${this.page}&with_genres=${genre}`
+      );
+      const data = response.data;
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   async getGenresName() {
     try {
@@ -66,9 +59,6 @@ export default class ApiService {
     }
   }
 
-  // метод для получения фильмов из инпута, параметр query + page
-  // https://developers.themoviedb.org/3/search/search-movies
-
   async getMovieByQuery(string) {
     try {
       const response = await axios.get(
@@ -80,9 +70,6 @@ export default class ApiService {
       console.log(error);
     }
   }
-
-  // метод для получения видосиков с ютуба, параметр id
-  // https://developers.themoviedb.org/3/movies/get-movie-videos
 
   async getTrailerById(id) {
     try {

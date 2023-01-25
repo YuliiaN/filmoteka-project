@@ -1,7 +1,3 @@
-import paginationButtons from './add-gallery';
-import ApiService from './api';
-
-
 const pageNumbers = (total, max, current) => {
   const half = Math.floor(max / 2);
   let to = max;
@@ -14,10 +10,14 @@ const pageNumbers = (total, max, current) => {
 
   let from = Math.max(to - max, 0);
 
-  return Array.from({ length: Math.min(total, max) }, (_, i) => (i + 1) + from);
+  return Array.from({ length: Math.min(total, max) }, (_, i) => i + 1 + from);
 };
 
-export function PaginationButton(totalPages, maxPagesVisible = 5, currentPage = 1) {
+export function PaginationButton(
+  totalPages,
+  maxPagesVisible = 5,
+  currentPage = 1
+) {
   let pages = pageNumbers(totalPages, maxPagesVisible, currentPage);
   let currentPageBtn = null;
   const buttons = new Map();
@@ -29,9 +29,14 @@ export function PaginationButton(totalPages, maxPagesVisible = 5, currentPage = 
   };
   const frag = document.createDocumentFragment();
   const paginationButtonContainer = document.createElement('div');
-  paginationButtonContainer.className = 'pagination-buttons'
+  paginationButtonContainer.className = 'pagination-buttons';
 
-  const createAndSetupButton = (label = '', cls = '', disabled = false, handleClick) => {
+  const createAndSetupButton = (
+    label = '',
+    cls = '',
+    disabled = false,
+    handleClick
+  ) => {
     const buttonElement = document.createElement('button');
     buttonElement.textContent = label;
     buttonElement.className = `page-btn ${cls}`;
@@ -40,15 +45,18 @@ export function PaginationButton(totalPages, maxPagesVisible = 5, currentPage = 
       handleClick(e);
       this.update();
       paginationButtonContainer.value = currentPage;
-      paginationButtonContainer.dispatchEvent(new CustomEvent('change', { detail: { currentPageBtn } }));
+      paginationButtonContainer.dispatchEvent(
+        new CustomEvent('change', { detail: { currentPageBtn } })
+      );
     });
 
     return buttonElement;
   };
 
-  const onPageButtonClick = e => currentPage = Number(e.currentTarget.textContent);
+  const onPageButtonClick = e =>
+    (currentPage = Number(e.currentTarget.textContent));
 
-  const onPageButtonUpdate = index => (btn) => {
+  const onPageButtonUpdate = index => btn => {
     btn.textContent = pages[index];
 
     if (pages[index] === currentPage) {
@@ -60,19 +68,32 @@ export function PaginationButton(totalPages, maxPagesVisible = 5, currentPage = 
   };
 
   buttons.set(
-    createAndSetupButton('start', 'start-page', disabled.start(), () => currentPage = 1),
-    (btn) => btn.disabled = disabled.start(),
+    createAndSetupButton(
+      'start',
+      'start-page',
+      disabled.start(),
+      () => (currentPage = 1)
+    ),
+    btn => (btn.disabled = disabled.start())
   );
 
   buttons.set(
-    createAndSetupButton('prev', 'prev-page', disabled.prev(), () => currentPage -= 1),
-    (btn) => btn.disabled = disabled.prev(),
+    createAndSetupButton(
+      'prev',
+      'prev-page',
+      disabled.prev(),
+      () => (currentPage -= 1)
+    ),
+    btn => (btn.disabled = disabled.prev())
   );
 
   pages.map((pageNumber, index) => {
     const isCurrentPage = currentPage === pageNumber;
     const button = createAndSetupButton(
-      pageNumber, isCurrentPage ? 'active' : '', false, onPageButtonClick,
+      pageNumber,
+      isCurrentPage ? 'active' : '',
+      false,
+      onPageButtonClick
     );
 
     if (isCurrentPage) {
@@ -83,13 +104,23 @@ export function PaginationButton(totalPages, maxPagesVisible = 5, currentPage = 
   });
 
   buttons.set(
-    createAndSetupButton('next', 'next-page', disabled.next(), () => currentPage += 1),
-    (btn) => btn.disabled = disabled.next(),
+    createAndSetupButton(
+      'next',
+      'next-page',
+      disabled.next(),
+      () => (currentPage += 1)
+    ),
+    btn => (btn.disabled = disabled.next())
   );
 
   buttons.set(
-    createAndSetupButton('end', 'end-page', disabled.end(), () => currentPage = totalPages),
-    (btn) => btn.disabled = disabled.end(),
+    createAndSetupButton(
+      'end',
+      'end-page',
+      disabled.end(),
+      () => (currentPage = totalPages)
+    ),
+    btn => (btn.disabled = disabled.end())
   );
 
   buttons.forEach((_, btn) => frag.appendChild(btn));
@@ -105,7 +136,7 @@ export function PaginationButton(totalPages, maxPagesVisible = 5, currentPage = 
     buttons.forEach((updateButton, btn) => updateButton(btn));
   };
 
-  this.onChange = (handler) => {
+  this.onChange = handler => {
     paginationButtonContainer.addEventListener('change', handler);
   };
 }

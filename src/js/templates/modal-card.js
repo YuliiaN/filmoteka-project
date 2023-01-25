@@ -11,8 +11,6 @@ export default function renderModal({
 }) {
   const IMG_URL = 'https://image.tmdb.org/t/p/w500';
   const genresNames = genres.map(genre => genre.name);
-
-  // set id for local storage
   const modalWindow = document.querySelector('.modal');
   modalWindow.setAttribute('data-id', id);
 

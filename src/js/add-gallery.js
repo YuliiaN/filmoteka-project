@@ -36,12 +36,3 @@ async function addMovies() {
     console.log(error);
   }
 }
-
-// async function addGenres(){
-//   try {
-//     const genres = await addGalleryAPI.getGenresName();
-//     const collection = createCardFilm({genres});
-//   }catch (error) {
-//     console.log(error);
-//   }
-// }

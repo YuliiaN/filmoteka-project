@@ -1,8 +1,6 @@
 import ApiService from './api';
 import renderTrailerCard from './templates/trailer-card';
 
-// comment
-
 const trailerRefs = {
   openModal: document.querySelectorAll('[data-modal-open-trailer]'),
   closeModal: document.querySelector('[data-modal-close-trailer]'),
@@ -75,8 +73,6 @@ async function setVideo(id) {
     const key = trailer.key;
     const markup = renderTrailerCard(key);
     trailerRefs.video.innerHTML = markup;
-    console.dir(trailerRefs.video);
-    console.dir(trailerRefs);
   } catch (error) {
     console.log(error);
   }
