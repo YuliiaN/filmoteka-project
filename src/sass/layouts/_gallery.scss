@@ -22,8 +22,6 @@
   justify-content: center;
   width: 280px;
   margin: 0 auto;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
   transition: transform 400ms $cubic;
 
   &:hover {
@@ -57,8 +55,7 @@
 }
 
 .gallery__film-poster {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-radius: 5px;
 }
 
 .gallery__trailer {
