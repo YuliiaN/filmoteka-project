@@ -1,15 +1,15 @@
 {
-  "name": "parcel-project-template",
+  "name": "filmoteka-project",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://YuliiaN.github.io/",
+  "homepage": "https://YuliiaN.github.io/filmoteka-project/",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /team-project-js/"
+    "build": "parcel build src/*.html --public-url /filmoteka-project/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YuliiaN/team-project-js.git"
+    "url": "git+https://github.com/YuliiaN/filmoteka-project.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
