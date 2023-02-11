@@ -31,6 +31,12 @@
   margin-right: 10px;
 }
 
+.filter-button:hover,
+.form-filter:hover,
+.filter:hover {
+  cursor: pointer;
+}
+
 .filter {
   cursor: pointer;
 }

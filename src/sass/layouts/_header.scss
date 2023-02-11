@@ -61,6 +61,10 @@
   }
 }
 
+.header__logo-link:hover {
+  cursor: pointer;
+}
+
 .header__logo-icon {
   stroke: $white-main;
 }
