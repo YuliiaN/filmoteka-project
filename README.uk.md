@@ -18,8 +18,9 @@ npm install
 
 3. Запустіть режим розробки командою `npm start` в терміналі.
 
-4. Go to [http://localhost:1234](http://localhost:1234) in your browser. This
-   page will automatically reload after saving changes to the project files.
+4. Перейдіть за адресою [http://localhost:1234](http://localhost:1234) в
+   браузері. Ця сторінка буде автоматично перезавантажуватися після збереження
+   змін в файлах проєкту.
 
 ### Розробка
 
