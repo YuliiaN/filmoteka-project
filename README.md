@@ -5,7 +5,7 @@ searching for movies by name and genre, adding the selected film to watched or
 queue. You can see more information about the movie by clicking on the card.
 Additionally, there is an option to watch the trailer.
 
-## Installation
+## ⚙️ Installation
 
 1. Make sure you have an LTS version of Node.js installed on your computer.
 
@@ -23,11 +23,20 @@ npm install
 
 ### Development
 
-Main stack of technologies: HTML5, SASS, Vanilla JavaScript, REST API, AJAX.
+Main stack of technologies: `HTML5`, `SASS`, `Vanilla JavaScript`, `REST API`,
+`AJAX`.
 
-Additional tools and libraries: Parcel, Postman, axios, notiflix.
+Additional tools and libraries: `Parcel`, `Postman`, `axios`, `notiflix`.
 
-### Authors
+### 🔗 References
+
+[Layout](https://www.figma.com/file/ieXHCTVNre6afLNCW0cDFc/Filmoteka?type=design&node-id=0-1)
+
+[Technical task](https://docs.google.com/spreadsheets/d/1Z26Jc5WlgcoD8r_Xci6R5vcCHtKFfESoJFhZQ2eh77E/edit#gid=0)
+
+[API](https://www.themoviedb.org/)
+
+### 👩‍💻 Authors
 
 - [Yuliya Nikiforova](https://github.com/YuliiaN) - Team Lead
 - [Iryna Khamidova](https://github.com/Classika88) - Scrum Master
